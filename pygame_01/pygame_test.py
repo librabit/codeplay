@@ -6,7 +6,7 @@ screen = pygame.display.set_mode((600, 600)) #화면 크기 설정
 clock = pygame.time.Clock() 
 
 while True: #게임 루프
-    screen.fill((0, 0, 0)) #단색으로 채워 화면 지우기
+    screen.fill((0, 255, 0)) #단색으로 채워 화면 지우기
 
     #변수 업데이트
 
