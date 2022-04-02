@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("똥피하기-코드플레이")
 
 #이미지 불러오기 (배경)
-bg = pygame.image.load("pygame_original/bg.png") #상대경로로 불러와야 다른 컴에서도 적용
+bg = pygame.image.load("pygame_original/source/bg.png") #상대경로로 불러와야 다른 컴에서도 적용
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
