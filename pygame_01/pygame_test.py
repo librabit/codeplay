@@ -2,7 +2,7 @@
 import pygame #파이 게임 모듈 임포트
 
 pygame.init() #파이 게임 초기화
-screen = pygame.display.set_mode((600, 800)) #화면 크기 설정
+screen = pygame.display.set_mode((600, 600)) #화면 크기 설정
 clock = pygame.time.Clock() 
 
 while True: #게임 루프
