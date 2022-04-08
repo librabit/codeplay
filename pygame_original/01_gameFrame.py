@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-
 import pygame
-
 pygame.init() # 초기화 (반드시 필요)
 
 #화면크기 설정
@@ -16,7 +14,8 @@ pygame.display.set_caption("똥피하기-코드플레이")
 running = True #실행중인지 확인
 while running:
     for event in pygame.event.get(): #키마 이벤트를 지속적으로 체크
-        if event.type == pygame.QUIT: #창닫는 이벤트
+        if event.type == pygame.QUIT:
+            # print("죽여줘!!!!") #창닫는 이벤트
             running = False
 
 #종료처리

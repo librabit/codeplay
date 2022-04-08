@@ -22,6 +22,7 @@ while running:
         if event.type == pygame.QUIT: #창닫는 이벤트
             running = False
     # screen.fill((200, 200, 200)) # 배경을 이미지가 아닌 색으로 지정하는 방법 RGB
+    
     screen.blit(bg, (0, 0)) # blit = 배경 그리기
 
     pygame.display.update() # 게임화면을 새로고침해줌.
