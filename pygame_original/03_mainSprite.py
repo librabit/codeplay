@@ -22,7 +22,7 @@ character_size = character.get_rect().size #스프라이트를 사각형 형태�
 character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 character_height = character_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 character_xPos = (screen_width / 2) - (character_width / 2) #화면 가로 정중앙
-character_yPos = 0 #화면 세로 맨아래
+character_yPos = screen_height - character_height #화면 세로 맨아래
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
