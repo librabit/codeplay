@@ -21,7 +21,7 @@ character = pygame.image.load("pygame_original/source/character.png")
 character_size = character.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 character_height = character_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
-character_xPos = screen_width / 2 - character_width / 2 #화면 가로 정중앙
+character_xPos = (screen_width / 2) - (character_width / 2) #화면 가로 정중앙
 character_yPos = screen_height - character_height #화면 세로 맨아래
 
 #이동할 좌표
@@ -49,8 +49,6 @@ while running:
             elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
                 to_y = 0
 
-    # screen.fill((200, 200, 200)) # 배경을 이미지가 아닌 색으로 지정하는 방법 RGB
-    
     #추가한 이미지들을 화면에 띄우기
     character_xPos += to_x #스프라이트의 위치 반영
     character_yPos += to_y #스프라이트의 위치 반영
