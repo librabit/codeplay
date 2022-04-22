@@ -2,7 +2,7 @@
 
 import pygame
 
-pygame.init() # 초기화 (반드시 필요)
+pygame.init() # 초기화 (반드시  필요)
 
 #화면크기 설정
 screen_width = 480 # 가로크기
