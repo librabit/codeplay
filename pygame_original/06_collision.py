@@ -14,7 +14,6 @@ pygame.display.set_caption("똥피하기-코드플레이")
 #FPS
 clock = pygame.time.Clock()
 
-
 #이미지 불러오기 (배경)
 bg = pygame.image.load("pygame_original/source/bg.png") #상대경로로 불러와야 다른 컴에서도 적용
 
@@ -33,10 +32,8 @@ enemy = pygame.image.load("pygame_original/source/enemy.png")
 enemy_size = enemy.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 enemy_width = enemy_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 enemy_height = enemy_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
-enemy_xPos = screen_width / 2 - enemy_width / 2 #화면 가로 정중앙
-enemy_yPos = screen_height / 2 - enemy_height / 2 #화면 세로 맨아래
-
-
+enemy_xPos = (screen_width / 2) - (enemy_width / 2) #화면 가로 정중앙
+enemy_yPos = (screen_height / 2) - (enemy_height / 2) #화면 세로 맨아래
 
 #이동할 좌표
 to_x = 0
