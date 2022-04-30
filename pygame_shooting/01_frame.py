@@ -102,7 +102,6 @@ while running:
         print("사망! 사망")
         running = False
 
-    if 
 
     # 5. 화면에 그리기
     screen.blit(bg, (0, 0))

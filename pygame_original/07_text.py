@@ -40,7 +40,7 @@ enemy_yPos = screen_height / 2 - enemy_height / 2 #화면 세로 맨아래
 game_font = pygame.font.Font(None, 40) #폰트 객체 생성 (폰트종류, 크기) none은 기본
 
 # 게임제한시간
-total_time = 10
+total_time = 0
 
 #시작시간 정보
 start_ticks = pygame.time.get_ticks() #파이썬상에서 돌아가는 시계의 틱을 받아와 저장.
@@ -112,12 +112,9 @@ while running:
     #타이머 집어넣기
     #경과시간 계산
     elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 #밀리세컨드를 1000으로 나눠 초단위 표시
-    timer = game_font.render(str(int(total_time - elapsed_time)), True, (0, 0, 0)) #소숫점을 짜르기 위해 int로 바꾼 뒤, 문자열로 바꿔 글씨 출력
+    timer = game_font.render(str(int(total_time + elapsed_time)), False, (0, 0, 0)) #소숫점을 짜르기 위해 int로 바꾼 뒤, 문자열로 바꿔 글씨 출력
     # 출력할 글자, True, 글씨색
-    if total_time - elapsed_time <= 0:
-        print("타임아웃!")
-        # timer = game_font.render("Time Out", True, (255, 255, 255))
-        running = False
+
 
     #화면상에 이미지 출력하기 (실제 오브젝트의 위치가 아님!)
     screen.blit(bg, (0, 0)) # blit = 배경 그리기

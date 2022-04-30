@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
+import random
 
 pygame.init() # 초기화 (반드시 필요)
 
@@ -32,8 +33,8 @@ enemy = pygame.image.load("pygame_original/source/enemy.png")
 enemy_size = enemy.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 enemy_width = enemy_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 enemy_height = enemy_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
-enemy_xPos = (screen_width / 2) - (enemy_width / 2) #화면 가로 정중앙
-enemy_yPos = (screen_height / 2) - (enemy_height / 2) #화면 세로 맨아래
+enemy_xPos = random.randint(0, (screen_width - enemy_width)) #화면 가로 정중앙
+enemy_yPos = 0 #화면 세로 맨아래
 
 #이동할 좌표
 to_x = 0
@@ -41,6 +42,7 @@ to_y = 0
 
 #이동속도 고정해주기
 character_speed = 1
+enemy_speed = 10
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
@@ -56,15 +58,15 @@ while running:
                 to_x -= character_speed
             elif event.key == pygame.K_RIGHT: #오른쪽 화살표 
                 to_x += character_speed
-            elif event.key == pygame.K_UP: #위쪽 화살표
-                to_y -= character_speed
-            elif event.key == pygame.K_DOWN: #아랫쪽 화살표
-                to_y += character_speed
+            # elif event.key == pygame.K_UP: #위쪽 화살표
+            #     to_y -= character_speed
+            # elif event.key == pygame.K_DOWN: #아랫쪽 화살표
+            #     to_y += character_speed
         if event.type == pygame.KEYUP: # 키보드에서 손을 뗐을 때 중지
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT: #가로움직임
                 to_x = 0
-            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
-                to_y = 0
+            # elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
+            #     to_y = 0
 
     # screen.fill((200, 200, 200)) # 배경을 이미지가 아닌 색으로 지정하는 방법 RGB
     
@@ -79,10 +81,16 @@ while running:
     elif character_xPos > screen_width - character_width:
        character_xPos = screen_width - character_width
     # 세로 스크린내 안벗어나게
-    if character_yPos < 0:
-        character_yPos = 0
-    elif character_yPos > screen_height - character_height:
-        character_yPos = screen_height - character_height
+    # if character_yPos < 0:
+    #     character_yPos = 0
+    # elif character_yPos > screen_height - character_height:
+    #     character_yPos = screen_height - character_height
+
+    enemy_yPos += enemy_speed 
+    if enemy_yPos > screen_height:
+        enemy_yPos = 0
+        enemy_speed = random.randint(1, 3)
+        enemy_xPos = random.randint(0, screen_width - enemy_width)
 
     #충돌 처리하기
     character_rect = character.get_rect() #get_rect는 가로세로 크기를 가져옴

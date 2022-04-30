@@ -74,10 +74,6 @@ while running:
     elif character_xPos > screen_width - character_width:
         character_xPos = screen_width - character_width
     
-    enemy_yPos += enemy_speed
-    if enemy_yPos > screen_height:
-        enemy_yPos = 0
-        enemy_xPos = random.randint(0, (screen_width - enemy_width))
 
     # 4. 충돌처리
     character_rect = character.get_rect()
@@ -88,6 +84,12 @@ while running:
     enemy_rect.left = enemy_xPos
     enemy_rect.top = enemy_yPos
 
+    enemy_yPos += enemy_speed
+    if enemy_yPos > screen_height:
+        enemy_yPos = 0
+        enemy_xPos = random.randint(0, (screen_width - enemy_width))
+
+
     if character_rect.colliderect(enemy_rect):
         print("사망! 사망")
         running = False
@@ -96,6 +98,7 @@ while running:
     screen.blit(bg, (0, 0))
     screen.blit(character, (character_xPos, character_yPos))
     screen.blit(enemy, (enemy_xPos, enemy_yPos))
+
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 #종료시간 살짝 늦추기
