@@ -2,7 +2,6 @@
 import pygame
 import random
 
-
 ########################################################
 # 파이게임 초기설정 (반드시 초기에 세 해야하는 것)
 pygame.init()
@@ -48,7 +47,7 @@ enemy_speed = 10
 #이벤트 반복 시작 - 스크래치의 무한반복과 같음
 running = True #실행중인지 확인
 while running:
-    dt = clock.tick(30) #게임화면이 초당 리프레시되는 횟수
+    dt = clock.tick(60) #게임화면이 초당 리프레시되는 횟수
 
     #2 이벤트 처리(키보드 마우스 등 화면조작 관련)
     for event in pygame.event.get(): #키마 이벤트를 지속적으로 체크
@@ -88,6 +87,7 @@ while running:
     if enemy_yPos > screen_height:
         enemy_yPos = 0
         enemy_xPos = random.randint(0, (screen_width - enemy_width))
+        enemy_speed = random.randint(5, 15)
 
 
     if character_rect.colliderect(enemy_rect):
