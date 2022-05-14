@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
+import random
 
 pygame.init() # 초기화 (반드시 필요)
 
@@ -128,7 +129,7 @@ while running:
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 #종료시간 살짝 늦추기
-pygame.time.delay(2000)
+
 
 
 #종료처리

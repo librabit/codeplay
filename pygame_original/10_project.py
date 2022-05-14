@@ -31,7 +31,8 @@ character_height = character_size[1]
 character_xPos = (screen_width / 2) - (character_width / 2)
 character_yPos = screen_height - character_height
 
-to_x = 0
+# to_x = 0
+to_y = 0
 character_speed = 10
 
 #적군 생성
@@ -85,7 +86,7 @@ while running:
 
     enemy_yPos += enemy_speed
     if enemy_yPos > screen_height:
-        enemy_yPos = enemy_height * -1
+        enemy_yPos = 0
         enemy_xPos = random.randint(0, (screen_width - enemy_width))
         enemy_speed = random.randint(5, 15)
 
@@ -102,7 +103,7 @@ while running:
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 #종료시간 살짝 늦추기
-# pygame.time.delay(2000)
+pygame.time.delay(2000)
 
 #종료처리
 pygame.quit()
