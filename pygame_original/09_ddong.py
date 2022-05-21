@@ -31,8 +31,9 @@ character_height = character_size[1]
 character_xPos = (screen_width / 2) - (character_width / 2)
 character_yPos = screen_height - character_height
 
+# to_y = 0
 to_x = 0
-character_speed = 10
+character_speed = 1
 
 #적군 생성
 enemy = pygame.image.load("pygame_original/source/enemy.png")
@@ -66,15 +67,20 @@ while running:
 
 
     # 3. 게임 캐릭터 위치 정의
-    character_xPos += to_x
+    character_xPos += to_x * dt
 
     if character_xPos < 0:
         character_xPos = 0
     elif character_xPos > screen_width - character_width:
         character_xPos = screen_width - character_width
     
+    # 적군 움직임 및 충돌처리
+    enemy_yPos += enemy_speed
+    if enemy_yPos > screen_height:
+        enemy_yPos = enemy_height * -1
+        enemy_xPos = random.randint(0, (screen_width - enemy_width))
+        enemy_speed = random.randint(5, 15)
 
-    # 4. 충돌처리
     character_rect = character.get_rect()
     character_rect.left = character_xPos
     character_rect.top = character_yPos
@@ -82,13 +88,6 @@ while running:
     enemy_rect = enemy.get_rect()
     enemy_rect.left = enemy_xPos
     enemy_rect.top = enemy_yPos
-
-    enemy_yPos += enemy_speed
-    if enemy_yPos > screen_height:
-        enemy_yPos = enemy_height * -1
-        enemy_xPos = random.randint(0, (screen_width - enemy_width))
-        enemy_speed = random.randint(5, 15)
-
 
     if character_rect.colliderect(enemy_rect):
         print("사망! 사망")
