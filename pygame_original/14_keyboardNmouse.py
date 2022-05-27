@@ -162,7 +162,6 @@ while running:
     screen.blit(character, (character_xPos, character_yPos))
     screen.blit(enemy, (enemy_xPos, enemy_yPos))
     screen.blit(ball, (ball_xPos, ball_yPos))
-    print(ball_speed_x, ball_speed_y)
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 #종료시간 살짝 늦추기
