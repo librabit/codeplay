@@ -40,25 +40,26 @@ while running:
             # print("mouseMotion")
             # print(pygame.mouse.get_pos()) # 마우스 움직이는 위치 좌표 출력
             circleX_pos, circleY_pos = pygame.mouse.get_pos()
-            screen.fill((0, 0, 0))
+            screen.fill((11, 55, 26))
             pygame.draw.circle(screen, (255, 0, 255), (circleX_pos, circleY_pos), 10)
+
         if event.type == pygame.MOUSEBUTTONDOWN:
-            # print("mouseButtonDown")
-            # print(pygame.mouse.get_pos())
-            # print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
-            if event.button == 1:
-                print("좌클")
-            elif event.button == 3:
-                print("우클")
-            elif event.button == 2:
-                print("휠클")
-            elif event.button == 4:
-                print("휠업")
-            elif event.button == 5:
-                print("휠다운")
+            print("버튼을 누르셨습니다")
+            print(pygame.mouse.get_pos())
+            print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
+            # if event.button == 1:
+            #     print("좌클")
+            # elif event.button == 3:
+            #     print("우클")
+            # elif event.button == 2:
+            #     print("휠클")
+            # elif event.button == 4:
+            #     print("휠업")
+            # elif event.button == 5:
+            #     print("휠다운")
     
         if event.type == pygame.MOUSEBUTTONUP:
-            # print("mouseButtonUp")
+            print("mouseButtonUp")
             pass
         
     # 3. 게임 캐릭터 위치 정의
