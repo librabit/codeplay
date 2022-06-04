@@ -19,6 +19,8 @@ pygame.display.set_caption("마우스 컨트롤")
 circleX_pos = 0
 circleY_pos = 0
 
+#사운드
+pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
 
 #FPS
 clock = pygame.time.Clock()
@@ -47,16 +49,17 @@ while running:
             print("버튼을 누르셨습니다")
             print(pygame.mouse.get_pos())
             print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
-            # if event.button == 1:
-            #     print("좌클")
-            # elif event.button == 3:
-            #     print("우클")
-            # elif event.button == 2:
-            #     print("휠클")
-            # elif event.button == 4:
-            #     print("휠업")
-            # elif event.button == 5:
-            #     print("휠다운")
+            if event.button == 1:
+                print("좌클")
+                pop.play()
+            elif event.button == 3:
+                print("우클")
+            elif event.button == 2:
+                print("휠클")
+            elif event.button == 4:
+                print("휠업")
+            elif event.button == 5:
+                print("휠다운")
     
         if event.type == pygame.MOUSEBUTTONUP:
             print("mouseButtonUp")
