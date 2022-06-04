@@ -21,6 +21,8 @@ pygame.display.set_caption("키보드 + 마우스 컨트롤")
 
 #사운드
 pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
+pop.play()
+
 
 #FPS
 clock = pygame.time.Clock()
@@ -83,15 +85,15 @@ while running:
                 character_to_x -= 1
             elif event.key == pygame.K_RIGHT: #오른쪽 화살표 
                 character_to_x += 1
-            elif event.key == pygame.K_UP: #위쪽 화살표
-                character_to_y -= 1
-            elif event.key == pygame.K_DOWN: #아랫쪽 화살표
-                character_to_y += 1
+            # elif event.key == pygame.K_UP: #위쪽 화살표
+            #     character_to_y -= 1
+            # elif event.key == pygame.K_DOWN: #아랫쪽 화살표
+            #     character_to_y += 1
         if event.type == pygame.KEYUP: # 키보드에서 손을 뗐을 때 중지
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT: #가로움직임
                 character_to_x = 0
-            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
-                character_to_y = 0
+            # elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
+            #     character_to_y = 0
         
         # mouseX_pos = 0
         # mouseY_pos = 0
