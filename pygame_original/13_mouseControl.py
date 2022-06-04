@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
 
-
-
 ########################################################
 # 파이게임 초기설정 (반드시 초기에 세 해야하는 것)
 pygame.init()
@@ -19,8 +17,9 @@ pygame.display.set_caption("마우스 컨트롤")
 circleX_pos = 0
 circleY_pos = 0
 
-#사운드
-pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
+sound_a = pygame.mixer.Sound("pygame_original/source/Bark.wav")
+sound_b = pygame.mixer.Sound("pygame_original/source/Bite.wav")
+sound_c = pygame.mixer.Sound("pygame_original/source/Pew.wav")
 
 #FPS
 clock = pygame.time.Clock()
@@ -39,9 +38,11 @@ while running:
             running = False
 
         if event.type == pygame.MOUSEMOTION:
-            # print("mouseMotion")
-            # print(pygame.mouse.get_pos()) # 마우스 움직이는 위치 좌표 출력
+            print("mouseMotion")
+            print(pygame.mouse.get_pos()) # 마우스 움직이는 위치 좌표 출력
             circleX_pos, circleY_pos = pygame.mouse.get_pos()
+            # circleX_pos = pygame.mouse.get_pos()[0]
+            # circleY_pos = pygame.mouse.get_pos()[1]
             screen.fill((11, 55, 26))
             pygame.draw.circle(screen, (255, 0, 255), (circleX_pos, circleY_pos), 10)
 
@@ -51,11 +52,13 @@ while running:
             print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
             if event.button == 1:
                 print("좌클")
-                pop.play()
+                sound_a.play()
             elif event.button == 3:
                 print("우클")
+                sound_b.play()
             elif event.button == 2:
                 print("휠클")
+                sound_c.play()
             elif event.button == 4:
                 print("휠업")
             elif event.button == 5:
@@ -71,9 +74,6 @@ while running:
 
     # 5. 화면에 그리기
     pygame.display.update() # 게임화면을 새로고침해줌.
-
-#종료시간 살짝 늦추기
-# pygame.time.delay(2000)
 
 #종료처리
 pygame.quit()

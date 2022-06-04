@@ -19,6 +19,8 @@ pygame.display.set_caption("키보드 + 마우스 컨트롤")
 # X_pos = screen_width / 2
 # Y_pos = screen_height / 2
 
+#사운드
+pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
 
 #FPS
 clock = pygame.time.Clock()
