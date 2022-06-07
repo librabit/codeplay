@@ -17,9 +17,8 @@ pygame.display.set_caption("마우스 컨트롤")
 circleX_pos = 0
 circleY_pos = 0
 
-sound_a = pygame.mixer.Sound("pygame_original/source/Bark.wav")
-sound_b = pygame.mixer.Sound("pygame_original/source/Bite.wav")
-sound_c = pygame.mixer.Sound("pygame_original/source/Pew.wav")
+l_click = pygame.mixer.Sound("pygame_original/source/l_click.wav")
+r_click = pygame.mixer.Sound("pygame_original/source/r_click.wav")
 
 #FPS
 clock = pygame.time.Clock()
@@ -41,8 +40,6 @@ while running:
             print("mouseMotion")
             print(pygame.mouse.get_pos()) # 마우스 움직이는 위치 좌표 출력
             circleX_pos, circleY_pos = pygame.mouse.get_pos()
-            # circleX_pos = pygame.mouse.get_pos()[0]
-            # circleY_pos = pygame.mouse.get_pos()[1]
             screen.fill((11, 55, 26))
             pygame.draw.circle(screen, (255, 0, 255), (circleX_pos, circleY_pos), 10)
 
@@ -52,13 +49,12 @@ while running:
             print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
             if event.button == 1:
                 print("좌클")
-                sound_a.play()
+                l_click.play()
             elif event.button == 3:
                 print("우클")
-                sound_b.play()
+                r_click.play()
             elif event.button == 2:
                 print("휠클")
-                sound_c.play()
             elif event.button == 4:
                 print("휠업")
             elif event.button == 5:
