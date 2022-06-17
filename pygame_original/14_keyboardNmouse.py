@@ -20,13 +20,12 @@ pygame.display.set_caption("키보드 + 마우스 컨트롤")
 # Y_pos = screen_height / 2
 
 #사운드
-pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
-pop.play()
+# pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
+# pop.play()
 
 
 #FPS
 clock = pygame.time.Clock()
-
 ########################################################
 # 1. 사용자가 추가하는 내용물들 초기화 (배경, 스프라이트, 좌표, 속도, 폰트, 시간 등)
 
@@ -95,8 +94,8 @@ while running:
             # elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
             #     character_to_y = 0
         
-        # mouseX_pos = 0
-        # mouseY_pos = 0
+        mouseX_pos = 0
+        mouseY_pos = 0
         # 마우스로 적군 움직이기
         if event.type == pygame.MOUSEMOTION:
             mousePos = pygame.mouse.get_pos()
