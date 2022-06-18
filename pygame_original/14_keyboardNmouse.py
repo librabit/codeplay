@@ -2,7 +2,6 @@
 import pygame
 import random
 
-
 ########################################################
 # 파이게임 초기설정 (반드시 초기에 세 해야하는 것)
 pygame.init()
@@ -13,16 +12,7 @@ screen_height = 640 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 #화면 타이틀 (GUI 제목창)
-pygame.display.set_caption("키보드 + 마우스 컨트롤")
-
-#오브젝트 그리기
-# X_pos = screen_width / 2
-# Y_pos = screen_height / 2
-
-#사운드
-# pop = pygame.mixer.Sound("pygame_original/source/pop.wav")
-# pop.play()
-
+pygame.display.set_caption("퐁게임")
 
 #FPS
 clock = pygame.time.Clock()
@@ -84,15 +74,10 @@ while running:
                 character_to_x -= 1
             elif event.key == pygame.K_RIGHT: #오른쪽 화살표 
                 character_to_x += 1
-            # elif event.key == pygame.K_UP: #위쪽 화살표
-            #     character_to_y -= 1
-            # elif event.key == pygame.K_DOWN: #아랫쪽 화살표
-            #     character_to_y += 1
+
         if event.type == pygame.KEYUP: # 키보드에서 손을 뗐을 때 중지
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT: #가로움직임
                 character_to_x = 0
-            # elif event.key == pygame.K_UP or event.key == pygame.K_DOWN: #세로움직임
-            #     character_to_y = 0
         
         mouseX_pos = 0
         mouseY_pos = 0
@@ -140,25 +125,17 @@ while running:
         ball_speed_x *= -1
         ball_speed_x = random.randint(3, 8)
 
-        # ball_xPos = 0
     elif ball_xPos >= screen_width - ball_width:
         ball_speed_x *= -1
         ball_speed_x = -random.randint(3, 8)
-        # ball_xPos = screen_width - ball_width
     
     if ball_yPos <= 0:
         ball_speed_y *= -1
         ball_speed_y = random.randint(3, 8)
-        # ball_yPos = 0
+
     elif ball_yPos >= screen_height - ball_height:
         ball_speed_y *= -1
         ball_speed_y = -random.randint(3, 8)
-        # ball_yPos = screen_height - ball_height
-    
-    # ball_xPos += ball_speed_x
-    # ball_yPos += ball_speed_y
-
-    # 4. 충돌처리
 
     # 5. 화면에 그리기
     screen.fill((255, 255, 255))
@@ -166,9 +143,6 @@ while running:
     screen.blit(enemy, (enemy_xPos, enemy_yPos))
     screen.blit(ball, (ball_xPos, ball_yPos))
     pygame.display.update() # 게임화면을 새로고침해줌.
-
-#종료시간 살짝 늦추기
-# pygame.time.delay(2000)
 
 #종료처리
 pygame.quit()
