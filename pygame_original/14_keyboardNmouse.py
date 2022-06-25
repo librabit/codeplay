@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 #화면 타이틀 (GUI 제목창)
 pygame.display.set_caption("퐁게임")
 
-#FPS
+#FPS``
 clock = pygame.time.Clock()
 ########################################################
 # 1. 사용자가 추가하는 내용물들 초기화 (배경, 스프라이트, 좌표, 속도, 폰트, 시간 등)
