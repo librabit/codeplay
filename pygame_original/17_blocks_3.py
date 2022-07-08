@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from tokenize import triple_quoted
 import pygame
 import random
 
@@ -30,8 +29,8 @@ ball_yPos = screen_height - bar_height - ball_size
 ball_rect = pygame.Rect(ball_xPos, ball_yPos, ball_size * 2, ball_size * 2)
 ball_rect.center = (ball_xPos, ball_yPos)
 
-ball_x_speed = 0.3
-ball_y_speed = 0.3
+ball_x_speed = 0.2
+ball_y_speed = 0.2
 
 #3. 블록 정의
 block_width = screen_width / 10
@@ -47,7 +46,7 @@ for i in range(10):
     for j in range(3):
         blocks[i].append(pygame.Rect(i*block_width, j*block_height, block_width, block_height))
         block_color[i].append((random.randrange(256), random.randrange(256), random.randrange(256)))
-print(blocks)
+
 #4. 바와 마우스 움직임 정의
 mouse_xPos = 0
 mouse_yPos = 0
@@ -55,10 +54,8 @@ mouse_yPos = 0
 #5. 점수 계산하기
 point = 0
 
-#6. 시작시 카운트후 시작
-count = True
-
 #7. 화면에 글자 출력
+pygame.font.init()
 def gameText(words): #매개변수로 받는 내용 화면에 출력
     font = pygame.font.SysFont(None, 100) #폰트지정
 
@@ -71,6 +68,9 @@ def gameText(words): #매개변수로 받는 내용 화면에 출력
     text_yPos = screen_height / 2 - text_height / 2
 
     screen.blit(text, (text_xPos, text_yPos)) #화면에 텍스트 갱신
+
+#6. 시작시 카운트후 시작
+count = True
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
@@ -124,7 +124,7 @@ while running:
         gameText("Your Score : %d" % point)
         pygame.display.update()
         pygame.time.delay(2000)
-        break #While 반복문 종료
+        running = False #While 반복문 종료
     
     ball_xPos += ball_x_speed
     ball_yPos += ball_y_speed

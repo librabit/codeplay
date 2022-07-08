@@ -39,10 +39,8 @@ block_height = screen_height / 20
 block_xPos = 0
 block_yPos = 0
 
-blocks = [[0, b, c], [], [], [], [], [], [], [], [], []] #[[] for i in range(10)] #10개의 빈 리스트 생성
+blocks = [[], [], [], [], [], [], [], [], [], []] #[[] for i in range(10)] #10개의 빈 리스트 생성
 block_color = [[], [], [], [], [], [], [], [], [], []] #10개의 빈 리스트 생성
-blocks[0] = [a, b, c]
-blocks[0][0] = a
 
 for i in range(10):
     for j in range(3):
