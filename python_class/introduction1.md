@@ -207,9 +207,9 @@ print 명령어를 함수 내부에 두고 활용이 가능하다.
 
     class 참치선물세트():
         def __init__(self, 일반, 야채, 고추):
-            self.normal = 일반
-            self.vegi = 야채
-            self.pepper = 고추
+            self.일반 = 일반
+            self.야채 = 야채
+            self.고추 = 고추
 
         def 내용물보기(self, name):
             print(name)

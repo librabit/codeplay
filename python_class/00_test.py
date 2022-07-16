@@ -1,25 +1,24 @@
-점화 = 300
+class 참치선물세트():
+    def __init__(self, 일반, 야채, 고추):
+        self.일반 = 일반
+        self.야채 = 야채
+        self.고추 = 고추
 
-class Units:
-    hp = 0
-    damage = 0
-    speed = 0
-    def minjae():
-        pass
+    def 내용물보기(self, name):
+        print(name)
+        print("일반참치 : " + str(self.일반))
+        print("야채참치 : " + str(self.야채))
+        print("고추참치 : " + str(self.고추))  
+ 
+class 특별선물세트(참치선물세트):
+    def __init__(self, 일반, 스팸, 올리브유):
+        super().__init__(일반, 0, 0) #상위클래스의 생성자(init)에서 3개의 변수 중 1개만 가져옴
+        self.스팸 = 스팸 #특별선물세트에서만 쓰는 변수 만들기
+        self.올리브유 = 올리브유 #특별선물세트에서만 쓰는 변수 만들기
 
-timo = Units()
-timo.hp = 10
-timo.damage = 100
-timo.speed = 50
-
-yasuo = Units()
-yasuo.hp = 5
-yasuo.damage = 1000
-yasuo.speed = 100
-
-print("티모 - 체력 : {0} | 공격력 : {1} | 이속 : {2}".format(timo.hp, timo.damage, timo.speed))
-
-
-
-agent.move("forwad")
-agent.place(1, "down")
+    def 내용물보기(self, name):
+        super().내용물보기(name)
+        print("스팸 : " + str(self.스팸))
+        print("올리브유 : " + str(self.올리브유))
+특별01 = 특별선물세트(6, 3, 2)
+특별01.내용물보기("특별세트 1호")
