@@ -10,15 +10,13 @@
 * 무한반복을 마치는 명령어 입력
 
 아래는 예시코드
-
-    import random
-
-    character = []
-    
-    running = True
-
-    while running:
-        data = input("데이터를 입력하세요 : ")
-        if data == ??:
-            pass
         
+import random
+
+character = []
+running = True
+
+while running:
+    data = input("데이터를 입력하세요 : ")
+    if data == ??:
+        pass
