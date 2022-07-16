@@ -1,24 +1,34 @@
-class 참치선물세트():
-    def __init__(self, 일반, 야채, 고추):
-        self.일반 = 일반
-        self.야채 = 야채
-        self.고추 = 고추
+class 캐릭터():
+    def __init__(self, 체력, 공격력, 이속):
+        self.체력 = 체력
+        self.공격력 = 공격력
+        self.이속 = 이속
 
-    def 내용물보기(self, name):
+    def 상태보기(self, name):
         print(name)
-        print("일반참치 : " + str(self.일반))
-        print("야채참치 : " + str(self.야채))
-        print("고추참치 : " + str(self.고추))  
- 
-class 특별선물세트(참치선물세트):
-    def __init__(self, 일반, 스팸, 올리브유):
-        super().__init__(일반, 0, 0) #상위클래스의 생성자(init)에서 3개의 변수 중 1개만 가져옴
-        self.스팸 = 스팸 #특별선물세트에서만 쓰는 변수 만들기
-        self.올리브유 = 올리브유 #특별선물세트에서만 쓰는 변수 만들기
+        print("체력 : {}".format(self.체력))
+        print("공격력 : {}".format(self.공격력))
+        print("이속 : {}".format(self.이속))
 
-    def 내용물보기(self, name):
-        super().내용물보기(name)
-        print("스팸 : " + str(self.스팸))
-        print("올리브유 : " + str(self.올리브유))
-특별01 = 특별선물세트(6, 3, 2)
-특별01.내용물보기("특별세트 1호")
+class 챔피언(캐릭터):
+    def __init__(self, 체력, 공격력, 이속, q, w, e, r):
+        super().__init__(체력, 공격력, 이속)
+        self.q = q
+        self.w = w
+        self.e = e
+        self.r = r
+    
+    def 상태보기(self, name):
+        super().상태보기(name)
+        print("Q스킬 : {}".format(self.q))
+        print("W스킬 : {}".format(self.w))
+        print("E스킬 : {}".format(self.e))        
+        print("R스킬 : {}".format(self.r))    
+
+미니언01 = 캐릭터(100, 5, 20)
+미니언01.상태보기("미니언1번의 상태")
+야스오 = 챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질")
+야스오.상태보기("야스오의 상태")
+
+characters = []
+characters.append("abc")
