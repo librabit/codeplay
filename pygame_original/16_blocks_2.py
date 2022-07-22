@@ -21,7 +21,7 @@ bar_yPos = screen_height - bar_height
 bar_rect = pygame.Rect(bar_xPos, bar_yPos, bar_width, bar_height)
 bar_to_X = 0
 
-#2. 공 정의
+#2. 굥 정의
 ball_size = 20
 
 ball_xPos = screen_width / 2
@@ -46,7 +46,7 @@ for i in range(10):
     for j in range(3):
         blocks[i].append(pygame.Rect(i*block_width, j*block_height, block_width, block_height))
         block_color[i].append((random.randrange(256), random.randrange(256), random.randrange(256)))
-print(blocks)
+
 #4. 바와 마우스 움직임 정의
 mouse_xPos = 0
 mouse_yPos = 0
@@ -57,16 +57,6 @@ while running:
     for event in pygame.event.get(): #키마 이벤트를 지속적으로 체크
         if event.type == pygame.QUIT:
             running = False
-        
-        # if event.type == pygame.KEYDOWN:
-        #     if event.key == pygame.K_LEFT:
-        #         bar_to_X -= 1
-        #     elif event.key == pygame.K_RIGHT:
-        #         bar_to_X += 1
-
-        # if event.type == pygame.KEYUP:
-        #     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-        #         to_x = 0
 
         if event.type == pygame.MOUSEMOTION: #마우스 위치에 따라 좌우로 막대 이동
             mouse_xPos, mouse_yPos = pygame.mouse.get_pos()

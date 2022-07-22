@@ -18,10 +18,9 @@ bar_height = 25
 
 bar_xPos = screen_width / 2 - bar_width / 2
 bar_yPos = screen_height - bar_height
-
 bar_rect = pygame.Rect(bar_xPos, bar_yPos, bar_width, bar_height)
 
-#2. 공 정의
+#2. 굥 정의
 ball_size = 20
 
 ball_xPos = screen_width / 2
@@ -44,9 +43,6 @@ for i in range(10):
     for j in range(3):
         blocks[i].append(pygame.Rect(i*block_width, j*block_height, block_width, block_height))
         block_color[i].append((random.randrange(256), random.randrange(256), random.randrange(256)))
-
-# print(blocks)
-# print(block_color)
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
