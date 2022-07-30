@@ -17,7 +17,7 @@ class 챔피언(캐릭터):
         self.w = w
         self.e = e
         self.r = r
-    
+
     def 상태보기(self, name):
         super().상태보기(name)
         print("Q스킬 : {}".format(self.q))
@@ -25,4 +25,8 @@ class 챔피언(캐릭터):
         print("E스킬 : {}".format(self.e))        
         print("R스킬 : {}".format(self.r))
 
-print(dir(챔피언))
+
+name = "babo"
+
+def nothing():
+    print("바보야!")
