@@ -7,4 +7,4 @@ woman1_texts1 = [q1, sel1, result1, score1]
 
 
 
-questions_01 = [woman1_texts1 , woman1_texts2, woman1_texts3, woman1_texts4, woman1_texts5]
+questions_01 = [woman1_texts1]
