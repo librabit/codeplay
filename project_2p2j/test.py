@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
+import random
 pygame.init() # 초기화 (반드시 필요)
 
 screen_width = 480 # 가로크기
