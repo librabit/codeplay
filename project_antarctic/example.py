@@ -1,6 +1,7 @@
 from text_data_01 import questions_01
 from text_data_02 import questions_02
 from text_data_03 import questions_03
+from text_data_ending import *
 
 import os
 clear = lambda: os.system('cls')
@@ -28,7 +29,9 @@ def question10(woman):
         print(f"상대방 : {question[2][sel-1]}")
         global score1
         score1 += question[3][sel-1]
-        clear()    
+        clear()
+    # 성공실패 여부가 들어감.ending_good / ending_bad 점수에따라 조건을 나눔
+    # 누구와 성공/실패했는지 기록해둬야함.
 
 running = True
 
@@ -48,11 +51,7 @@ while running:
         elif chosen_woman == "후배":
             question10(questions_03)
     else:
-        print("세 명의 여자와 모두 사귀게 된 홍식. 그는 쓰레기로 낙인찍혀 영원히 사회에서 격리된다....")
+        # final_ending이 경우의 수에 따라 달라짐.
         running = False
 
 
-# 인물별 엔딩
-# 연애를 더한다 / 여기서 마친다
-# while 반복문 끝.
-# 최종엔딩.
