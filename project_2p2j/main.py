@@ -45,6 +45,7 @@ while running:
                 gauge = 0
     gauge += score
     print(gauge)
+    pygame.draw.rect(screen, (55, 55, 255), (screen_width / 2, screen_height / 2, gauge, 10))
 
     # 새로들어간 부분 2
     elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 #밀리세컨드를 1000으로 나눠 초단위 표시
