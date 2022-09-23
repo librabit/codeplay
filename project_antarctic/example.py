@@ -75,8 +75,11 @@ while running:
             question10(questions_02)
         elif chosen_woman == "후배":
             question10(questions_03)
+        elif chosen_woman == "끝":
+            running = False
     else:
         # final_ending이 경우의 수에 따라 달라짐.
         running = False
+
 
 
