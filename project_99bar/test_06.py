@@ -46,15 +46,20 @@ start_button.change_size(180, 60)
 start_button.x = (screen_width / 2) - (start_button.img.get_size()[0] / 2)
 start_button.y = 3 * screen_height / 4
 
+intro_bg.show()    
+start_button.show()
+
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        
 
-    intro_bg.show()
-    start_button.show()
+    # intro_bg.show()    
+    # start_button.show()
+    
+    
 
     pygame.display.update()
 
