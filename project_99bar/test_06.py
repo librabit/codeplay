@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
+from bridge import day_end
 
 pygame.init()
 
@@ -46,8 +47,8 @@ start_button.change_size(180, 60)
 start_button.x = (screen_width / 2) - (start_button.img.get_size()[0] / 2)
 start_button.y = 3 * screen_height / 4
 
-intro_bg.show()    
-start_button.show()
+# intro_bg.show()    
+# start_button.show()
 
 
 running = True
@@ -56,10 +57,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # intro_bg.show()    
-    # start_button.show()
+    intro_bg.show()    
+    start_button.show()
     
-    
+    # 하루가 끝나면 호출 : day_end(날짜, 성공/실패, 만족도, 돈)
 
     pygame.display.update()
 
