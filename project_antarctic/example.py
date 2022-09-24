@@ -19,9 +19,11 @@ def line():
 def question10(woman):
     score = 0
     global score1
+    score1 = 0
     global score2
+    score2 = 0
     global score3
-    
+    score3 = 0    
     for question in woman:
         clear()
         for i in question[0]:
@@ -70,9 +72,7 @@ def question10(woman):
     # 성공실패 여부가 들어감.ending_good / ending_bad 점수에따라 조건을 나눔
     # 누구와 성공/실패했는지 기록해둬야함.
 
-
-success = [score1, score2, score3]
-
+success = []
 
 running = True
 
@@ -97,6 +97,7 @@ while running:
             question10(questions_03)
         elif chosen_woman == "끝":
             running = False
+        success = [score1, score2, score3]
     else:
         # final_ending이 경우의 수에 따라 달라짐.
         running = False
