@@ -9,8 +9,6 @@ clear = lambda: os.system('cls') # 화면청소기능
 # 3명의 인물 선택지
 women = ["선배", "동갑", "후배", "끝"]
 
-love_result = 0
-
 # 화면구분 UI
 def line():
     print("-" * 30)
@@ -40,8 +38,30 @@ def question10(woman): # woman 매개변수에 선택하는 인물 받음
         print(f"상대방 : {question[2][sel-1]}") # 선택한 결과 상대방 대사
         score += question[3][sel-1] # 각 질문별 점수 합산
         input("(다음으로 넘어가려면 엔터를 치세요...)")
+        
+    if chosen_woman == "선배": 
+        if score >= 12: # 연애성공점수         
+            score1 = 1
+        else:
+            score1 = 0
+        clear()
+        print(personal_ending1[score1]) # 선배 연애성공/실패 결과 출력
+        
+    elif chosen_woman == "동갑":
+        if score >= 12: # 연애성공점수
+            score2 = 1
+        else:
+            score2 = 0 
+        clear()
+        print(personal_ending2[score2])  # 동갑 연애성공/실패 결과 출력
 
-    return score    
+    elif chosen_woman == "후배":
+        if score >= 12: # 연애성공점수
+            score3 = 1
+        else:
+            score3 = 0
+        clear()     
+        print(personal_ending3[score3]) # 후배 연애성공/실패 결과 출력
     input("(다음으로 넘어가려면 엔터를 치세요...)")
 
 success = [] # 연애성공여부 저장 리스트
@@ -62,40 +82,21 @@ while running:
         choice = int(input("누구와 연애를 시작하시겠습니까? : "))
         chosen_woman = women.pop(choice-1) # 선택한 연애대상을 리스트에서 빼버림
         if chosen_woman == "선배":
-            love_result = question10(questions_01)
-            if love_result >= 12: # 연애성공점수         
-                score1 = 1
-            else:
-                score1 = 0
-            clear()
-            print(personal_ending1[score1])
-            input("(다음으로 넘어가려면 엔터를 치세요...)")
+            question10(questions_01)
         elif chosen_woman == "동갑":
-            love_result = question10(questions_02)
-            if love_result >= 12: # 연애성공점수         
-                score2 = 1
-            else:
-                score2 = 0
-            clear()
-            print(personal_ending1[score2])
-            input("(다음으로 넘어가려면 엔터를 치세요...)")
+            question10(questions_02)
         elif chosen_woman == "후배":
-            love_result = question10(questions_03)
-            if love_result >= 12: # 연애성공점수         
-                score3 = 1
-            else:
-                score3 = 0
-            clear()
-            print(personal_ending1[score3])
-            input("(다음으로 넘어가려면 엔터를 치세요...)")
+            question10(questions_03)
         elif chosen_woman == "끝":
             running = False
         success = [score1, score2, score3] # 연애성공/실패여부 리스트에 저장
     else:
         running = False
 
-
 clear()
+
+# 연애 대상별/성공-실패별 최종결과 출력
+
 print(score1, score2, score3)
 print(success)
 if success[0] == 1 and success[1] == 1 and success[2] == 1:

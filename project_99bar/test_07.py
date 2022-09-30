@@ -5,7 +5,7 @@ import pygame
 import random
 from bridge import day_end
 from data_02 import *
-from text_data import daily_report
+# from text_data import daily_report
 
 pygame.init()
 
@@ -18,7 +18,7 @@ pygame.display.set_caption("즐겁다 햄버거집")
 
 #게임 데이터
 satisfaction = 10
-money = 10000
+money = 15000
 passed_days = 0
 passed_guest = 0
 
@@ -39,41 +39,7 @@ odbar_food_yPos = 0
 first_guest = 1
 first_dayend_bg = 0
 day_end_button = 0
-random_num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-# def food_all_alpha(a):
-#         food_01.img.set_alpha(a) 
-#         food_02.img.set_alpha(a)
-#         food_03.img.set_alpha(a) 
-#         food_04.img.set_alpha(a) 
-#         # food_05.img.set_alpha(a) 
-#         food_06.img.set_alpha(a) 
-#         food_07.img.set_alpha(a) 
-#         food_08.img.set_alpha(a) 
-#         food_09.img.set_alpha(a) 
-
-# def day_end(day, result, manjok, money):
-#     if result == "good":
-#         end_bg = pygame.image.load(f"project\source\day_end\day{day}G.png")
-#         manjokdo = game_font_B.render(str(manjok), False, (0, 0, 0))
-#         money_sum = game_font_B.render(str(money), False, (0, 0, 0))
-#         report = game_font_L.render(daily_report[day][0], False, (0, 0, 0))
-#         report_x = report.get_rect()[0]
-#     else:
-#         end_bg = pygame.image.load(f"project\source\day_end\day{day}B.png")
-#         manjokdo = game_font_B.render(str(manjok), False, (0, 0, 0))
-#         money_sum = game_font_B.render(str(money), False, (0, 0, 0))
-#         report = game_font_L.render(daily_report[day][1], False, (0, 0, 0))
-#         report_x = report.get_rect()[0]
-    
-#     report_size = report.get_rect().size
-#     report_x = report_size[0]
-    
-#     screen.blit(end_bg, (0, 0)) # blit = 배경 그리기
-#     screen.blit(manjokdo, (190, 135))
-#     screen.blit(money_sum, (410, 135))
-#     screen.blit(report, (screen_width / 2 - report_x / 2, screen_height - (screen_height / 3)))
-#     pygame.display.update()  
+days_fisrt = 1
 
 def hamtop_yPos_re():
     bread_top.y = hamtop_yPos
@@ -101,7 +67,6 @@ def wait_time(a):
     while wait_first_time > pygame.time.get_ticks():
         continue
     return True
-
 
 def order_menu_show(hle):
     if len(order_menu[0]) == hle:
@@ -141,8 +106,6 @@ def order_menu_show(hle):
         bread_top_odbar.y = odbar_food_yPos
         bread_top_odbar.show()
 
-
-
 class imageload:
     def __init__(self):
         self.x = 0
@@ -158,7 +121,6 @@ class imageload:
         self.rect = self.img.get_rect()
         self.rect.left = self.x
         self.rect.top = self.y
-
 
 #배경
 intro_bg = imageload()
@@ -468,13 +430,26 @@ running = True
 
 while running:
     while passed_days < 7 and running:
-        while satisfaction > passed_guest and running: #passed_guest => 받은 손님수 / sat => 만족도 (하루 주문량)
+        while satisfaction > passed_guest and running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False   
+                    running = False
                 
                 yesterday_moeny = money
-                day_end_button = 0
+
+                if today != 1 and days_fisrt == 1:
+                    game_bg.show()
+                    pygame.display.update()
+                    game_progress_state = 3
+                    pygame.time.delay(2000)
+                    guest_presence_or_absence = 1
+                    order_text.show()
+                    menu_bar.show()
+                    odtx_button.show()
+                    guest_presence_or_absence = 1
+                    first_guest = 1
+                    days_fisrt = 0
+                    first_dayend_bg = 1
 
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     if start_button.rect.collidepoint(event.pos) == True:
@@ -563,17 +538,16 @@ while running:
                             hamtop_yPos = 285
 
                     if event.key == pygame.K_f:
-                        if game_progress_state == 3 and order_text_check == 1: 
-                            random_things = random_num_list.pop(random.randint(0, 8))                            
+                        if game_progress_state == 3 and order_text_check == 1:
+                            before_ran = random_things
+                            while before_ran == random_things:
+                                random_things = random.randint(1, 9)
                             ranfood_img = foodran_img[random_things - 1]
                             stackfood_img = foodstack_img[random_things - 1]
                             foodbg.show()
                             ranfood_img.show()
                             money -= 300
                             print(money)
-                            random_num_list.append(random_things)
-                            random_num_list.sort()
-                            print(random_num_list)
 
                     if event.key == pygame.K_SPACE:
                         if game_progress_state == 3 and order_text_check == 1:
@@ -585,19 +559,6 @@ while running:
                         
             
             if game_progress_state == 3:
-                
-            #     while passed_guest < satisfaction:
-
-                # order_guest = guests[random.randint(0, len(guests)-1)]
-                # if order_guest == normal_guest:
-                #     order_menu = normal_guest[random.randint(0, len(normal_guest)-2)]
-                # elif order_guest == fat_guest:
-                #     order_menu = fat_guest[random.randint(0, len(fat_guest)-2)]
-                # elif order_guest == weird_guest:
-                #     order_menu = weird_guest[random.randint(0, len(weird_guest)-2)]
-
-        
-
                 if guest_presence_or_absence == 1:
                     if first_guest == 1:
                         order_guest_img = guests_img[random.randint(0, len(guests_img)-1)]
@@ -611,9 +572,6 @@ while running:
 
                     guest_presence_or_absence = 0
                     
-
-
-
             if game_progress_state == 0:
                 intro_bg.show()
                 start_button.show()
@@ -622,7 +580,6 @@ while running:
             pygame.display.update()
 
         if running and first_dayend_bg == 0:
-            passed_guest = 0
             game_progress_state = 4
 
             if yesterday_moeny < money:
@@ -637,6 +594,8 @@ while running:
 
             passed_guest = 0
             first_dayend_bg = 1
+            today += 1
+            days_fisrt = 1
 
             # while day_end_button != 1:
             #     if event.type == pygame.MOUSEBUTTONDOWN:
