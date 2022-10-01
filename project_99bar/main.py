@@ -33,8 +33,8 @@ hamtop_yPos = 285
 today = 1
 choose_things = []
 
-# 0 : 인트로 , 1 : 인트로 스토리 , 2 : 튜토리얼 ,3 : 게임진행 , 4 : 하루 끝 , 5 : 게임 끝
-game_progress_state = 0
+game_progress_state = 0 # 0 : 인트로 , 1 : 인트로 스토리 , 2 : 튜토리얼 ,3 : 게임진행 , 4 : 하루 끝 , 5 : 게임 끝
+
 okbt_press_state = 0
 odtx_press_state = 0
 guest_presence_or_absence = 0
@@ -56,15 +56,6 @@ def hamtop_yPos_re():
     food_07.y = hamtop_yPos
     food_08.y = hamtop_yPos
     food_09.y = hamtop_yPos
-
-def guest_all_alpha(a):
-    guests_01.img.set_alpha(a) 
-    guests_02.img.set_alpha(a)
-    guests_03.img.set_alpha(a) 
-    guests_04.img.set_alpha(a) 
-    guests_05.img.set_alpha(a)
-    guests_06.img.set_alpha(a) 
-    guests_07.img.set_alpha(a) 
 
 def order_menu_texting():
     odmn = game_font_L.render(f"{order_menu[3]}버거 주세요", False, (0, 0, 0))
@@ -108,9 +99,7 @@ def order_menu_show(hle):
         bread_top_odbar.y = odbar_food_yPos
         bread_top_odbar.show()
 
-
-
-class imageload:
+class imageload: # 유튜브에서 코드 참조.
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -125,7 +114,6 @@ class imageload:
         self.rect = self.img.get_rect()
         self.rect.left = self.x
         self.rect.top = self.y
-
 
 #배경
 intro_bg = imageload()
@@ -455,7 +443,6 @@ satisfaction_ui.y = 70
 show_money = game_font_L.render(str(money), False, (0, 0, 0))
 show_satisfaction = game_font_L.render(str(satisfaction), False, (0, 0, 0))
 
-
 running = True
 
 while running:
@@ -644,22 +631,19 @@ while running:
 
         game_progress_state = 3
     
-    if running:
-        if money >= 50000:
-            game_end_good.show()
-        elif money < 50000 and money >= 25000:
-            game_end_normal.show()
-        elif money < 25000 and money > 0:
-            game_end_bad.show()
-        elif money <= 0:
-            game_end_vbad.show()
-
-        if satisfaction < 5:
-            game_end_bad.show()
-        
         pygame.display.update()
-        pygame.time.delay(5000)
         
-        break
+if running:
+    if money >= 50000:
+        game_end_good.show()
+    elif money < 50000 and money >= 25000:
+        game_end_normal.show()
+    elif money < 25000 and money > 0:
+        game_end_bad.show()
+    elif money <= 0:
+        game_end_vbad.show()
 
+    if satisfaction < 5:
+        game_end_bad.show()
+pygame.time.delay(4000)
 pygame.quit()

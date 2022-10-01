@@ -55,22 +55,16 @@ class AnimatedSprite(pygame.sprite.Sprite):
         images.append(pygame.image.load('project_2p2j/source/enemy01.png'))
         images.append(pygame.image.load('project_2p2j/source/enemy1.png'))
 
- 
-
         # rect 만들기
         self.rect = pygame.Rect(position, size)
 
-
         # Rect 크기와 Image 크기 맞추기. pygame.transform.scale
         self.images = [pygame.transform.scale(image, size) for image in images]
-
- 
 
         # 캐릭터의 첫번째 이미지
         self.index = 0
         self.image = images[self.index]
 
- 
 
         # 1초에 보여줄 1장의 이미지 시간을 계산, 소수점 3자리까지 반올림
         self.animation_time = random.randint(1, 4)

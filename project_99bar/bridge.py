@@ -20,21 +20,21 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 #화면 타이틀 (제목창)
 # pygame.display.set_caption("햄버거")
 
-game_font_L = pygame.font.Font("project_99bar/source/font/MP_L.ttf", 25) #일기표시
-game_font_B = pygame.font.Font("project_99bar/source/font/MP_B.ttf", 40) #숫자표시
+game_font_L = pygame.font.Font("source/font/MP_L.ttf", 25) #일기표시
+game_font_B = pygame.font.Font("source/font/MP_B.ttf", 40) #숫자표시
 
 def day_end(day, result, manjok, money):
     if result == "good":
-        end_bg = pygame.image.load(f"project_99bar/source/day_end/day{day}G.png")
+        end_bg = pygame.image.load(f"source/day_end/day{day}G.png")
         manjokdo = game_font_B.render(str(manjok), False, (0, 0, 0))
         money_sum = game_font_B.render(str(money), False, (0, 0, 0))
-        report = game_font_L.render(daily_report[day][0], False, (0, 0, 0))
+        report = game_font_L.render(daily_report[day-1][0], False, (0, 0, 0))
         report_x = report.get_rect()[0]
     else:
-        end_bg = pygame.image.load(f"project_99bar/source/day_end/day{day}B.png")
+        end_bg = pygame.image.load(f"source/day_end/day{day}B.png")
         manjokdo = game_font_B.render(str(manjok), False, (0, 0, 0))
         money_sum = game_font_B.render(str(money), False, (0, 0, 0))
-        report = game_font_L.render(daily_report[day][1], False, (0, 0, 0))
+        report = game_font_L.render(daily_report[day-1][1], False, (0, 0, 0))
         report_x = report.get_rect()[0]
     
     report_size = report.get_rect().size
