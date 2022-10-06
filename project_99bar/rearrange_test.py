@@ -1,8 +1,9 @@
 import pygame
-import random
+import random # ??용도
 from text_data import *
 from bridge import * 
 from data_02 import *
+
 
 pygame.init()
 
@@ -44,7 +45,7 @@ days_fisrt = 1
 ending_txt1 = 0
 ending_txt2 = 0
 
-def hamtop_yPos_re(): # 햄버거 만들때 음식 쌓이는 위치
+def hamtop_yPos_re():
     bread_top.y = hamtop_yPos
     food_01.y = hamtop_yPos
     food_02.y = hamtop_yPos
@@ -56,11 +57,11 @@ def hamtop_yPos_re(): # 햄버거 만들때 음식 쌓이는 위치
     food_08.y = hamtop_yPos
     food_09.y = hamtop_yPos
 
-def order_menu_texting(): # 메뉴 주문시 나오는 문구
-    odmn = game_font_L.render(f"{order_menu[3]} 주세요", False, (0, 0, 0))
+def order_menu_texting():
+    odmn = game_font_L.render(f"{order_menu[3]}버거 주세요", False, (0, 0, 0))
     screen.blit(odmn, (35 ,screen_height - 125))
 
-def order_menu_show(hle): # 주문한 메뉴 식재료 표시 (오른쪽)
+def order_menu_show(hle):
     if len(order_menu[0]) == hle:
         bread_bottom_odbar.y = 230 + (25 * (hle - 3))
         bread_bottom_odbar.show()
@@ -98,6 +99,8 @@ def order_menu_show(hle): # 주문한 메뉴 식재료 표시 (오른쪽)
         bread_top_odbar.y = odbar_food_yPos
         bread_top_odbar.show()
 
+
+
 class imageload:
     def __init__(self):
         self.x = 0
@@ -114,7 +117,8 @@ class imageload:
         self.rect.left = self.x
         self.rect.top = self.y
 
-#배경 객체생성
+
+#배경
 intro_bg = imageload()
 intro_bg.put_img("project_99bar/source/bg/gamestart.png")
 
@@ -139,7 +143,7 @@ game_end_bad.put_img("project_99bar/source/bg/game_end_bad.png")
 game_end_vbad = imageload()
 game_end_vbad.put_img("project_99bar/source/bg/game_end_vbad.png")
 
-#손님 객체생성
+#손님
 guests_01 = imageload()
 guests_01.put_img("project_99bar/source/guest/hsu.png")
 guests_01.change_size(300, 300)
@@ -191,7 +195,7 @@ guests_07.get_rect()
 
 guests_img = [guests_01, guests_02, guests_03, guests_04, guests_05, guests_06, guests_07]
 
-#식재료 객체 생성 (뽑기용)
+#식재료(뽑기용)
 food_01_ran = imageload()
 food_01_ran.put_img("project_99bar/source/food/cheese.png")
 food_01_ran.change_size(150, 150)
@@ -248,7 +252,7 @@ food_09_ran.y = 0
 
 foodran_img = [food_01_ran, food_02_ran, food_03_ran, food_04_ran, food_05_ran, food_06_ran, food_07_ran, food_08_ran, food_09_ran]
 
-#식재료 객체 생성 (쌓는용)
+#식재료(쌓는용)
 
 bread_bottom = imageload()
 bread_bottom.put_img("project_99bar/source/food/bread_bottom.png")
@@ -318,7 +322,7 @@ food_09.y = hamtop_yPos
 
 foodstack_img = [food_01, food_02, food_03, food_04, food_05, food_06, food_07, food_08, food_09]
 
-#식재료 객체 생성 (오른쪽 주문내용)
+#식재료(주문내용)
 
 bread_bottom_odbar = imageload()
 bread_bottom_odbar.put_img("project_99bar/source/food/bread_bottom.png")
@@ -386,7 +390,7 @@ food_09_odbar.change_size(100 , 100)
 food_09_odbar.x = screen_width - 100
 food_09_odbar.y = 0
 
-# UI
+#UI
 start_button = imageload()
 start_button.put_img("project_99bar/source/ui/gamestartbt.png")
 start_button.change_size(180, 60)
@@ -448,11 +452,11 @@ running = True
 while running:
     for days in range(7): # 7일동안 장사를 할 수 있도록 7회 반복. 7일후 엔딩.
         while satisfaction > passed_guest and running: # 일일손님 메뉴만들기 반복메뉴 (만족도에 따라 손님 숫자가 변함)
-            for event in pygame.event.get(): # 마우스 클릭 및 키보드 이벤트 생성
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
 
-                if today != 1 and days_fisrt == 1: # 1일차가 아닐경우 1일장사의 첫화면 보여주기
+                if today != 1 and days_fisrt == 1:
                     game_bg.show()
                     pygame.display.update()
                     game_progress_state = 3
@@ -467,7 +471,8 @@ while running:
                     first_dayend_bg = 0
                     yesterday_moeny = money
 
-                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # 마우스가 버튼 근처의 rect에서만 반응하게 처리
+
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     if start_button.rect.collidepoint(event.pos) == True:
                         if game_progress_state == 0:
                             game_progress_state = 1
@@ -516,18 +521,18 @@ while running:
                                 order_menu_show(7)
                                 order_menu_show(9)
 
-                if event.type == pygame.KEYDOWN: # 키보드 E, F, 스페이스 키 이벤트 정의
-                    if event.key == pygame.K_e: # 버거 제공하기
-                        if order_text_check == 1: # OK 버튼을 클릭하면 장사시작 UI 등장
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_e:
+                        if order_text_check == 1:
                             hamtop_yPos -= 10
                             hamtop_yPos_re()
                             choose_things.sort()
                             print(choose_things, order_menu[4])
-                            if choose_things == order_menu[4]: # 주문메뉴를 잘 만들었을 때
+                            if choose_things == order_menu[4]:
                                 money += order_menu[1]
                                 if satisfaction < 10:
                                     satisfaction += 0.25
-                            elif choose_things != order_menu[4] and satisfaction > 1: # 주문과 다르게 만들었을 때
+                            elif choose_things != order_menu[4] and satisfaction > 1:
                                 money -= 2000
                                 satisfaction -= 1
                             choose_things = []
@@ -557,7 +562,7 @@ while running:
                             
                             hamtop_yPos = 285
 
-                    if event.key == pygame.K_f: # 식재료 변경하기
+                    if event.key == pygame.K_f:
                         if game_progress_state == 3 and order_text_check == 1:
                             before_ran = random_things
                             while before_ran == random_things:
@@ -569,7 +574,7 @@ while running:
                             money -= 300
                             print(money)
 
-                    if event.key == pygame.K_SPACE: # 식재료 선택하기
+                    if event.key == pygame.K_SPACE:
                         if game_progress_state == 3 and order_text_check == 1:
                             hamtop_yPos -= 10
                             hamtop_yPos_re()
@@ -577,7 +582,7 @@ while running:
                             print(choose_things)
                             stackfood_img.show()
                         
-            if game_progress_state == 3: # 본게임 첫화면 보여주기 
+            if game_progress_state == 3:
                 
                 if guest_presence_or_absence == 1:
                     if first_guest == 1:
@@ -593,10 +598,10 @@ while running:
 
                     guest_presence_or_absence = 0
 
-            if game_progress_state == 0: # 게임을 처음 시작했을 때 인트로화면 보여주기
+            if game_progress_state == 0:
                 intro_bg.show()
                 start_button.show()
-            elif game_progress_state == 3: # 처음 시작하고 하루가 지나면서부터 본게임 화면 보여주기
+            elif game_progress_state == 3:
                 money_ui.show()
                 satisfaction_ui.show()
                 show_money = game_font_L.render(str(money), False, (0, 0, 0))
@@ -606,7 +611,7 @@ while running:
 
             pygame.display.update()
 
-        if running and first_dayend_bg == 0: # 하루 장사를 마치면 일일 정산 화면 출력(bridge)
+        if running and first_dayend_bg == 0: #일일 정산 화면 출력(bridge)
             game_progress_state = 4
 
             print(yesterday_moeny,money)
@@ -630,7 +635,7 @@ while running:
 # 7일동안의 장사를 모두 마치고 나면 금액과 만족도로 각기 다른 엔딩 보여줌.
 if money >= 50000:
     game_end_good.show()
-    ending_txt1 = game_font_L.render(ending1[0], False, (0, 0, 0))ㄸ
+    ending_txt1 = game_font_L.render(ending1[0], False, (0, 0, 0))
     ending_txt2 = game_font_M.render(ending1[1], False, (100, 0, 100))
 elif money < 50000 and money >= 25000:
     game_end_normal.show()
@@ -656,8 +661,8 @@ ending_size2 = ending_txt2.get_rect().size
 ending2_x = ending_size2[0]
 screen.blit(ending_txt1, (screen_width / 2 - ending1_x / 2, screen_height / 2 - (ending1_y * 2)))
 screen.blit(ending_txt2, (screen_width / 2 - ending2_x / 2, screen_height / 2 + ending1_y))
-
 pygame.display.update()
 pygame.time.delay(5000)
+
 
 pygame.quit()
