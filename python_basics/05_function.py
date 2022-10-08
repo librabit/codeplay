@@ -7,6 +7,9 @@ user = 0
 computer = 0
 result = 0
 
+
+myname = "코딩쌤"
+
 def result_show(who):
     if who == 1:
         return "우리 비겼네?"

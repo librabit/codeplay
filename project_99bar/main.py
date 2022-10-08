@@ -630,7 +630,7 @@ while running:
 # 7일동안의 장사를 모두 마치고 나면 금액과 만족도로 각기 다른 엔딩 보여줌.
 if money >= 50000:
     game_end_good.show()
-    ending_txt1 = game_font_L.render(ending1[0], False, (0, 0, 0))ㄸ
+    ending_txt1 = game_font_L.render(ending1[0], False, (0, 0, 0))
     ending_txt2 = game_font_M.render(ending1[1], False, (100, 0, 100))
 elif money < 50000 and money >= 25000:
     game_end_normal.show()
