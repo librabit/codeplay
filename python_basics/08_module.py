@@ -17,7 +17,11 @@ while running:
     elif select == 1:
         ft.future()
     elif select == 1:
+<<<<<<< HEAD
         print
+=======
+        print(myname)
+>>>>>>> 20f2d4dbe099c791423b82dda6e4e00949338a63
         calculator()
 
 print("주인님 오늘도 행복한 하루되세염~")
