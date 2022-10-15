@@ -86,7 +86,7 @@ while running:
         elif chosen_woman == "동갑":
             question10(questions_02)
         elif chosen_woman == "후배":
-            question10(questions_03)
+            question10(questions_03)+   +++++++++++++++--+
         elif chosen_woman == "끝":
             running = False
         success = [score1, score2, score3] # 연애성공/실패여부 리스트에 저장
