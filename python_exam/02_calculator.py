@@ -1,6 +1,3 @@
-from calendar import c
-
-
 running = True
 
 while running:
