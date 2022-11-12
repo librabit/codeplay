@@ -10,11 +10,22 @@ resource.raise_for_status()
 
 soup = BeautifulSoup(resource.text, "lxml")
 
-monday1 = soup.find("a", attrs = {"class" : "title"})
+# sat1 = soup.find("a", attrs = {"href" : "/webtoon/list?titleId=792651&weekday=sat", "class" : "title"})
+# print(sat1.get_text())
 
-monday2 = monday1
+sat = soup.find_all("a", attrs= {"class" : "title"})
 
-print(monday1.get_text(), monday2.get_text())
+print(sat)
+
+# sat1 = sat.find("a", attrs = {"href" : "/webtoon/list?titleId=792651&weekday=sat", "class" : "title"})
+# print(sat1)
+
+# sat2 = sat1.find_next_sibling("a", attrs = {"href" : "/webtoon/list?titleId=792651&weekday=sat", "class" : "title"})
+# print(sat2)
+
+# monday2 = monday1
+
+# print(monday1.get_text(), monday2.get_text())
 
 # monday = allday.find("div", attr = {"class" : "thumb"})
 
