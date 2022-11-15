@@ -18,7 +18,7 @@ find_element(By.CLASS_NAME, ‘class_name’)
 find_element(By.CSS_SELECTOR, ‘css_selector’)
 
 '''
-
+import time # ?초 기다리기를 위한 모듈
 from selenium import webdriver # 크롬 웹드라이버 구동시작
 from selenium.webdriver.common.by import By # 크롬드라이버에서 HTML 태그 속 요소를 찾음
 from selenium.webdriver.common.keys import Keys # 키보드 입력으로 넘겨줌
@@ -30,6 +30,9 @@ browser.get("https://www.op.gg/champions")
 
 elem = browser.find_element(By.ID, "searchChampion") # 웹상의 특정한 위치요소 지정
 elem.send_keys("아리") # 해당요소에 텍스트 전송
+time.sleep(3) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
+elem.clear() # 기존에 보낸 내용을 삭제
+elem.send_keys("신지드")
 elem.send_keys(Keys.ENTER) # 해당요소에 특정 키 동작 전송
 
 
