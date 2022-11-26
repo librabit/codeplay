@@ -30,10 +30,20 @@ browser.get("https://www.op.gg/champions")
 
 elem = browser.find_element(By.ID, "searchChampion") # 웹상의 특정한 위치요소 지정
 elem.send_keys("아리") # 해당요소에 텍스트 전송
-time.sleep(3) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
-elem.clear() # 기존에 보낸 내용을 삭제
-elem.send_keys("신지드")
+time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
 elem.send_keys(Keys.ENTER) # 해당요소에 특정 키 동작 전송
+time.sleep(2)
+
+browser.get("https://www.naver.com")
+
+elem = browser.find_element(By.ID, "query") # 웹상의 특정한 위치요소 지정
+elem.send_keys("코드플레이") # 해당요소에 텍스트 전송
+time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
+elem.send_keys(Keys.ENTER)
+time.sleep(2)
+
+# elem.clear() # 기존에 보낸 내용을 삭제
+# elem.send_keys("신지드")
 
 
 while True: #자동종료 방지
