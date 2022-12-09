@@ -22,30 +22,70 @@ import time # ?초 기다리기를 위한 모듈
 from selenium import webdriver # 크롬 웹드라이버 구동시작
 from selenium.webdriver.common.by import By # 크롬드라이버에서 HTML 태그 속 요소를 찾음
 from selenium.webdriver.common.keys import Keys # 키보드 입력으로 넘겨줌
-
-
 browser = webdriver.Chrome()
+# browser.get("https://www.op.gg/")
 
-browser.get("https://www.op.gg/champions")
+# elem = browser.find_element(By.XPATH, "//*[@id='searchHome']") # 웹상의 특정한 위치요소 지정
+user = "실력이너무낮다"
+# elem.send_keys(user) # 해당요소에 텍스트 전송
+# time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
+# elem.send_keys(Keys.ENTER) # 해당요소에 특정 키 동작 전송
 
-elem = browser.find_element(By.ID, "searchChampion") # 웹상의 특정한 위치요소 지정
-elem.send_keys("아리") # 해당요소에 텍스트 전송
-time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
-elem.send_keys(Keys.ENTER) # 해당요소에 특정 키 동작 전송
+# browser.get(f"https://www.op.gg/summoners/kr/{user}")
+
+# time.sleep(2)
+# tier = browser.find_element(By.XPATH, "/html/body/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]")
+# print(tier)
+
+
+user_stat = []
+browser.get(f"https://www.op.gg/summoners/kr/{user}")
+time.sleep(1)
+elem = browser.find_element(By.CLASS_NAME, "tier")
 time.sleep(2)
+user_stat.append(elem.text)
 
-browser.get("https://www.naver.com")
-
-elem = browser.find_element(By.ID, "query") # 웹상의 특정한 위치요소 지정
-elem.send_keys("코드플레이") # 해당요소에 텍스트 전송
-time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
-elem.send_keys(Keys.ENTER)
+elem = browser.find_element(By.CLASS_NAME, "lp")
 time.sleep(2)
+user_stat.append(elem.text)
+
+elem = browser.find_elements(By.CLASS_NAME, "k-d-a")
+time.sleep(2)
+user_stat.append(elem[1].text)
+
+elem = browser.find_element(By.CLASS_NAME, "win-lose-container")
+time.sleep(2)
+user_stat.append(elem.text.split("\n"))
+
+# elem = browser.find_element(By.XPATH, "/html/body/div[1]/div[5]/div[1]/div[6]/table/tbody/tr[1]/td[1]/a")
+
+# user_stat.append(elem.text)
+
+print(user_stat)
+
+
+# time.sleep(3)
+# elem = browser.find_element(By.XPATH, "/html/body/div[1]/div[5]/div[1]/div[1]/div[2]")
+# print(elem.text)
+
+
+# stat = browser.find_element(By.XPATH, "/html/body/div[1]/div[5]/div[2]/div[2]/div[1]")
+# time.sleep(4)
+# print(stat.text)
+# time.sleep(2)
+
+# browser.get("https://www.naver.com")
+
+# elem = browser.find_element(By.ID, "query") # 웹상의 특정한 위치요소 지정
+# elem.send_keys("코드플레이") # 해당요소에 텍스트 전송
+# time.sleep(1) # 3초 대기. 웹브라우저가 작동할 시간을 줌.
+# elem.send_keys(Keys.ENTER)
+# time.sleep(2)
 
 # elem.clear() # 기존에 보낸 내용을 삭제
 # elem.send_keys("신지드")
 
 
-while True: #자동종료 방지
-    if "q" == input("quit?"):
-        break
+# while True: #자동종료 방지
+#     if "q" == input("quit?"):
+#         break
