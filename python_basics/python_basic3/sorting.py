@@ -25,3 +25,5 @@ while True:
         break
 print(numbers)
 print(f"{count}번 만에 정렬 완료")
+
+numbers.sort()
