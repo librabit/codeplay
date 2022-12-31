@@ -1,2 +1,8 @@
 korean
 teacher
+apple
+orange
+strawberry
+watermelon
+laptop
+mouse
