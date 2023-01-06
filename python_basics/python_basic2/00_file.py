@@ -1,7 +1,7 @@
 '''
 파일을 만들고, 읽고, 쓰고, 불러오기.
 '''
-f = open("test.txt", "w", encoding = "UTF-8")
+f = open("test.txt", "a", encoding = "UTF-8")
 # f = 객체
 # 파일을 새로 만들거나, 있는 파일을 덮어쓸때는 "write"
 # 기존 파일에 내용을 덧붙일때는 "add"
