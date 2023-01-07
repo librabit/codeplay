@@ -2,7 +2,6 @@ import random
 
 
 def lotto1():
-
     lotto_numbers = [] # 로또 공 1~45까지 담을 그릇
     pick = 0
     lotto_picks = [] # 로또 공에서 뽑아낸 숫자공 담을 그릇
