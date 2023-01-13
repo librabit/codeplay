@@ -31,3 +31,11 @@ def zzangna(word_in):
         print(f"{i[0]} : {i}")
 
 zzangna(input("삼행시 짓기위한 세 글자를 입력하세요 : "))
+
+'''
+input : 숫자를 넣어도 숫자가 문자열이 된다. int(input(:))
+
+for i in range(10):
+    print(i)
+
+'''
