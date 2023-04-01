@@ -17,27 +17,61 @@
 #문자열 슬라이싱 - 
 '''
 
+# name = ""
+# gender = ""
+# age = 0
+
+# # print(name, len(name), age - 10)
+
+# # 컴퓨터에게 데이터를 넣어주기.
+
+# name = input("이름을 입력하세요 : ")
+# gender = input("성별을 입력하세요 (남/여 둘 중 하나만 골라) : ")
+# age = input("나이를 입력하세요 : ") #input명령어로 넣어주는 모든 데이터는 "문자열"로 저장됨.
+
+# # print(name + "님 반갑습니다. 지옥에 오신것을 환영합니다!")
+# if gender == "남":
+#     gender = "Mr."
+# elif gender == "여":
+#     gender = "Ms."
+# # name = "홍길동" => Mr.홍
+# print(f"Welcome {gender}{name[0]}! This is fantastic Hell.") 
+
+# if int(age) <= 18:
+#     print("당신은 미성년자시군요. 미성년자 전용 건전한 지옥으로 입장하세요.")
+# elif int(age) >= 19:
+#     print("당신은 성인이군요. 성인용 레알살벌한 지옥으로 입장하세요.")
+
+
+
+
+
+'''
+data의 종류
+ - 문자열 str
+ - 숫자
+    - 소수점이 없는 놈. int(eger)
+    - 소수점이 있는 놈. float
+    - 참/거짓. 0/1. bool
+
+a = "apple"
+b = 15000
+
+a == b 
+
+'''
 name = ""
-gender = ""
 age = 0
+job = ""
+name = input("이름을 입력하시오 : ") #김개똥
+age = input("나이를 입력하시오 : ") #40
+job = input("직업을 입력하시오 : ") #변호사
 
-# print(name, len(name), age - 10)
+if int(age) > 18: # 데이터타잎을 연산가능한 숫자로 바꿔줌.
+    print(job + "시군요.")
+else:
+    print("어린이네? 꺼져!")
 
-# 컴퓨터에게 데이터를 넣어주기.
+print(f"{name[0]}{job}님 반갑습니다.") #문자열만 변수 뒤에 대괄호를 붙이고 그 안에 숫자를 넣을 수 있음. 이것을 "문자열 인덱싱"이라고 부름.
 
-name = input("이름을 입력하세요 : ")
-gender = input("성별을 입력하세요 (남/여 둘 중 하나만 골라) : ")
-age = input("나이를 입력하세요 : ") #input명령어로 넣어주는 모든 데이터는 "문자열"로 저장됨.
-
-# print(name + "님 반갑습니다. 지옥에 오신것을 환영합니다!")
-if gender == "남":
-    gender = "Mr."
-elif gender == "여":
-    gender = "Ms."
-# name = "홍길동" => Mr.홍
-print(f"Welcome {gender}{name[0]}! This is fantastic Hell.") 
-
-if int(age) <= 18:
-    print("당신은 미성년자시군요. 미성년자 전용 건전한 지옥으로 입장하세요.")
-elif int(age) >= 19:
-    print("당신은 성인이군요. 성인용 레알살벌한 지옥으로 입장하세요.")
+# 1. 문자열 인덱싱 2. 문자열 포맷팅
