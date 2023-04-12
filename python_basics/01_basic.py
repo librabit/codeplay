@@ -1,2 +1,4 @@
-for babo in range(10):
-    print("{}. hello babos".format(babo + 1))
+num = [1, 2, 3, 4, 5]
+
+for i in num[:3:]:
+    print(i)

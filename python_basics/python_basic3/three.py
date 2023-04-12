@@ -9,9 +9,9 @@
 
 마지막에 화면에 표시될 내용
 
-정 : 정시우 왔네?
-시 : 시우야 셤 잘 봤니?
-우 : 우째 이번에도 빵점맞으면 집에서 쫓겨나는거 아님? ㅋㅋㅋ
+최 : 최홍석 왔네?
+홍 : 홍석이 셤 잘 봤니?
+석 : 석굴암에서 뛰어내려. 그 점수면 지옥 가능 ㅋㅋㅋ
 
 1. 한글로 쭉 코드를 생각해서 단계를 적어보면 편함.
 2. 삼행시를 지을때 제시어와 다른 글자로 시작하면 체크해서 다시 입력하라고 할것.
@@ -20,32 +20,32 @@
  - for i in 리스트명: = 리스트의 0번째부터 마지막까지를 i에 넣어가며 반복
  - while ~
  - if ~ else ~ 
- - 정시우[0] = 정
+ - 최홍석[0] = 최
  - 리스트명.append(넣을내용)
  - print(f"{변수} 고정된 글 {변수}")
 
 '''
-def samhaengsi():
-    name = ""
-    name3 = []
-    name_in = ""
-    name = input("삼행시 지을 세글자 넣으시오 : ")
-    for word in name:
-        name_in = input(f"{word} : ")
-        while True:
-            if word == name_in[0]:
-                name3.append(name_in)
-                break
-            else:
-                print("첫글자 안맞음. 다시.")
-    print("*" * 20)
-    print(f"{name} 이라는 단어로 삼행시를 지어봤어")
-    for n in range(len(name)):
-        print(f"{name[n]} : {name3[n]}")
-    print("*" * 20)
-    return name3
+# def samhaengsi():
+name = ""
+name3 = []
+name_in = ""
+name = input("삼행시 지을 세글자 넣으시오 : ")
+for word in name:
+    name_in = input(f"{word} : ")
+    while True:
+        if word == name_in[0]:
+            name3.append(name_in)
+            break
+        else:
+            print("첫글자 안맞음. 다시.")
+print("*" * 20)
+print(f"{name} 이라는 단어로 삼행시를 지어봤어")
+for n in range(len(name)):
+    print(f"{name[n]} : {name3[n]}")
+print("*" * 20)
 
-f = open("event.txt", "a", encoding = "UTF-8")
-for word in samhaengsi():
-    f.write(word + "\n")
-f.close()
+
+# f = open("event.txt", "a", encoding = "UTF-8")
+# for word in samhaengsi():
+#     f.write(word + "\n")
+# f.close()
