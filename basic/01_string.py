@@ -109,11 +109,32 @@ a == b
 #     print(f"{name[0]}사장님 너무 멋지시다~ 굽신굽신~") #인덱싱
 
 
-import random
+# import random
 
-name = "못생긴손현수" #문자열
-call = ["바보", "천재", "미남", "추남", "또라이"] #리스트
+# name = "못생긴손현수" #문자열
+# call = ["바보", "천하에재수", "개남", "추남", "또라이"] #리스트
 
-print(f"역시! {name[3:]} {call[random.randint(0, 4)]}!")
+# print(f"역시! {name[3:]} {call[random.randint(0, 4)]}!")
 
 # 역시! 코딩쌤 천재!
+
+'''
+데이터의 타잎을 알고, 연산을 해봅시다.
+
+1. 문자열 str
+2. 숫자
+ - 정수 int
+ - 소수 float
+3. 참/거짓 True / False => Bool 
+4. 리스트 list
+'''
+
+a = "2023" - str / 문자열
+b = 30 - int / 정수
+c = True - bool / 불(참거짓)
+d = 25.5 - float / 소수
+e = ["잘생김", "친절함", "멋짐", "존경함"]
+
+print(a, type(a), b, type(b), c, type(c), d, type(d), e, type(e))
+print(b + d)
+print(1+1, 10-1, 2*2, 3/2, 4/2, 3//2, 4//2, 3%2)
