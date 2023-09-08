@@ -1,9 +1,0 @@
-korean
-american
-japanese
-chinese
-squid
-octopus
-puppy
-kitty
-baseball

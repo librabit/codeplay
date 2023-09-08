@@ -7,12 +7,12 @@ def word_in(): # 단어입력 기능 함수
         if word == "q":
             break
         else:
-            k.write(word + "\n")
+            k.write(f"{word}\n")
         word = input("영어 단어를 입력하시오 (종료=q) : ")
         if word == "q":
             break
         else:
-            e.write(word + "\n")
+            e.write(f"{word}\n")
 
     k.close()
     e.close()
@@ -21,19 +21,19 @@ def exam(): # 단어시험 기능 함수
     k = open("korean.txt", "r", encoding = "UTF-8")
     e = open("english.txt", "r", encoding = "UTF-8")
     score = 0
-    kwords = []
-    ewords = []
+    kwords = k.readlines()
+    ewords = e.readlines()
 
-    for r in k.readlines():
-        kwords.append(r.strip())
-    for r in e.readlines():
-        ewords.append(r.strip())
+    # for r in kwords:
+    #     kwords.append(r.strip())
+    # for r in ewords:
+    #     ewords.append(r.strip())
 
-    for i in len(kwords):
-        answer = input(f"{kwords[i]} 단어를 영어로? (종료=q): ")
+    for i in range(len(kwords)):
+        answer = input(f"{kwords[i].strip()} 단어를 영어로? (종료=q): ")
         if answer == "q":
             break
-        elif answer == ewords[i]:
+        elif answer == ewords[i].strip():
             print("정답입니다")
             score += 1
         else:

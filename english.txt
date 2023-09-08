@@ -1,5 +1,0 @@
-teacher
-student
-classroom
-pencil
-eraser
