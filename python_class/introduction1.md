@@ -88,7 +88,7 @@ LoL의 모든 캐릭터는 공통으로 갖고있는 특징이 있다.
     yasuo.damage = 1000
     yasuo.speed = 100
 
-    print("티모 - 체력 : {0} | 공격력 : {1} | 이속 : {2}".format(timo.hp, timo.damage, timo.speed))
+    print(f"티모 - 체력 : {timo.hp} | 공격력 : {timo.damage} | 이속 : {timo.speed}")
 
 # 클래스와 함수(메소드 method)
 모든 프로그램은 **함수**로 이뤄져 있다고 해도 과언이 아니다. 클래스가 없는 프로그램은 있을 수 있지만, 함수가 없는 프로그램은 찾기 어려울 것이다.  
@@ -157,7 +157,7 @@ LoL의 모든 캐릭터는 공통으로 갖고있는 특징이 있다.
 
         def 총합(self, 이름):
             내용물갯수 = self.일반 + self.야채 + self.고추
-            print("이름" + str(내용물갯수))
+            print(이름 + str(내용물갯수))
     참치1호 =  참치선물세트()
     참치1호.일반 = 5
     참치1호.야채 = 3
