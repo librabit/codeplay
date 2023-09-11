@@ -1,34 +1,142 @@
-class 캐릭터():
-    def __init__(self, 체력, 공격력, 이속):
-        self.체력 = 체력
-        self.공격력 = 공격력
-        self.이속 = 이속
+# # class 캐릭터():
+# #     def __init__(self, 체력, 공격력, 이속):
+# #         self.체력 = 체력
+# #         self.공격력 = 공격력
+# #         self.이속 = 이속
 
-    def 상태보기(self, name):
-        print(name)
-        print("체력 : {}".format(self.체력))
-        print("공격력 : {}".format(self.공격력))
-        print("이속 : {}".format(self.이속))
+# #     def 상태보기(self, name):
+# #         print(name)
+# #         print("체력 : {}".format(self.체력))
+# #         print("공격력 : {}".format(self.공격력))
+# #         print("이속 : {}".format(self.이속))
 
-class 챔피언(캐릭터):
-    def __init__(self, 체력, 공격력, 이속, q, w, e, r):
-        super().__init__(체력, 공격력, 이속)
-        self.q = q
-        self.w = w
-        self.e = e
-        self.r = r
+# # class 챔피언(캐릭터):
+# #     def __init__(self, 체력, 공격력, 이속, q, w, e, r):
+# #         super().__init__(체력, 공격력, 이속)
+# #         self.q = q
+# #         self.w = w
+# #         self.e = e
+# #         self.r = r
     
-    def 상태보기(self, name):
-        super().상태보기(name)
-        print("Q스킬 : {}".format(self.q))
-        print("W스킬 : {}".format(self.w))
-        print("E스킬 : {}".format(self.e))        
-        print("R스킬 : {}".format(self.r))    
+# #     def 상태보기(self, name):
+# #         super().상태보기(name)
+# #         print("Q스킬 : {}".format(self.q))
+# #         print("W스킬 : {}".format(self.w))
+# #         print("E스킬 : {}".format(self.e))        
+# #         print("R스킬 : {}".format(self.r))    
 
-미니언01 = 캐릭터(100, 5, 20)
-미니언01.상태보기("미니언1번의 상태")
-야스오 = 챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질")
-야스오.상태보기("야스오의 상태")
+# # 미니언01 = 캐릭터(100, 5, 20)
+# # 미니언01.상태보기("미니언1번의 상태")
+# # 야스오 = 챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질")
+# # 야스오.상태보기("야스오의 상태")
 
-characters = []
-characters.append("abc")
+# # characters = []
+# # characters.append("abc")
+
+
+# # def jammini():
+# #     print("아싸라비야 콜롬비야")
+
+# # name = "코딩쌤"
+# # age = 10
+# # like = ["과메기", "육회", "대방어"]
+# # hamsu = jammini
+
+# # print(type(jammini), type(name), type(age), type(like), type(hamsu))
+
+# class 참치선물세트:
+#     일반 = 0
+#     야채 = 0
+#     고추 = 0
+
+# spam = 참치선물세트()
+
+# spam.일반 = 5
+# spam.야채 = 1
+# spam.고추 = 7
+
+# # print(type(spam))
+
+
+
+# # class Units:
+# #     hp = 0
+# #     damage = 0
+# #     speed = 0
+
+
+    
+# # timo = Units()
+# # timo.hp = 10
+# # timo.damage = 100
+# # timo.speed = 50
+
+# # yasuo = Units()
+# # yasuo.hp = 5
+# # yasuo.damage = 1000
+# # yasuo.speed = 100
+
+# # print(f"티모 - 체력 : {timo.hp} | 공격력 : {timo.damage} | 이속 : {timo.speed}")
+# # print(f"야스오 - 체력 : {yasuo.hp} | 공격력 : {yasuo.damage} | 이속 : {yasuo.speed}")
+
+
+# class 참치선물세트:
+#     일반 = 0
+#     야채 = 0
+#     고추 = 0
+
+#     def 총합(self, 이름):
+#         내용물갯수 = self.일반 + self.야채 + self.고추
+#         print(이름 + str(내용물갯수))
+# 참치1호 = 참치선물세트()
+# 참치1호.일반 = 5
+# 참치1호.야채 = 3
+# 참치1호.고추 = 2
+
+# 참치갯수 = 참치1호.총합("담긴 참치 갯수 : ")
+
+# print(참치갯수)
+
+
+class 참치선물세트:
+    # 클래스 안에 정의된 데이터들
+    일반 = 0
+    야채 = 0
+    고추 = 0
+    제조정보 = []
+
+    # 클래스 안에 정의된 함수들
+    def 총합(self, 이름):
+        내용물갯수 = self.일반 + self.야채 + self.고추
+        print(이름 + str(내용물갯수) + "\n" + " / ".join(self.제조정보))
+    
+    def 출력(self):
+        self.총합("담긴 참치 갯수 : ")
+
+참치3호세트 = 참치선물세트()
+
+참치3호세트.일반 = 12
+참치3호세트.야채 = 3
+참치3호세트.고추 = 3
+참치3호세트.제조정보.append("2020. 1. 1")
+참치3호세트.제조정보.append("백두산 참치공장")
+참치3호세트.제조정보.append("제조책임 - 김정은")
+
+참치3호세트.출력()
+
+# class Units:
+#     hp = 0
+#     damage = 0
+#     speed = 0
+
+# timo = Units()
+# timo.hp = 10
+# timo.damage = 100
+# timo.speed = 50
+
+# yasuo = Units()
+# yasuo.hp = 5
+# yasuo.damage = 1000
+# yasuo.speed = 100
+
+# print(f"티모 - 체력 : {timo.hp} | 공격력 : {timo.damage} | 이속 : {timo.speed}")
