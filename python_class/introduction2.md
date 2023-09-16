@@ -13,7 +13,7 @@
         def __init__(self, 일반, 야채, 고추):
             self.일반 = 일반
             self.야채 = 야채
-            self.야채 = 고추
+            self.고추 = 고추
     
     class 특별선물세트(참치선물세트):
         pass

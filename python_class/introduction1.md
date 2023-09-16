@@ -213,9 +213,9 @@ print 명령어를 함수 내부에 두고 활용이 가능하다.
 
         def 내용물보기(self, name):
             print(name)
-            print("일반참치 : " + str(self.일반))
-            print("야채참치 : " + str(self.야채))
-            print("고추참치 : " + str(self.고추))    
+            print("일반참치 : " + str(self.normal))
+            print("야채참치 : " + str(self.vege))
+            print("고추참치 : " + str(self.pepper))    
 
     참치1호 = 참치선물세트(10, 3, 2)
     참치1호.내용물보기("참치1호 내용물 안내")

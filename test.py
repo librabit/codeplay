@@ -1,28 +1,25 @@
-import random
-name = ["이준우", "배경진", "유재형", '코딩쌤']
-ages = [7, 8, 11, 10]
+class 참치선물세트():
+    def __init__(self, 일반, 야채, 고추):
+        self.일반 = 일반
+        self.야채 = 야채
+        self.고추 = 고추
 
-# 사용자 정보 입력받기
-# yourname = ""
-# yourage = 0
-# yourname = input("이름이 무엇입니까? : ")
-# yourage = int(input("나이는 몇살입니까? : "))
+    def 내용물보기(self, name):
+        print(name)
+        print("일반참치 : " + str(self.일반))
+        print("야채참치 : " + str(self.야채))
+        print("고추참치 : " + str(self.야채))  
 
-# for i in range(len(name)): # 
-#     if ages[i] > yourage:
-#         print(f"{name[i]}님이 {yourname}님 보다 형입니다")
-#     elif ages[i] == yourage:
-#         print(f"{name[i]}님과 {yourname}님은 동갑내기 친구입니다")
-#     else:
-#         print(f"{name[i]}님이 {yourname}님 보다 어린 동생입니다")
-money_all = 0
-money_year = 0
+class 특별선물세트(참치선물세트):
+    def __init__(self, 일반, 스팸, 올리브유):
+        super().__init__(일반, 0, 0) #상위클래스의 생성자(init)에서 3개의 변수 중 1개만 가져옴
+        self.스팸 = 스팸 #특별선물세트에서만 쓰는 변수 만들기
+        self.올리브유 = 올리브유 #특별선물세트에서만 쓰는 변수 만들기
+        
+    def 내용물보기(self, name):
+        super().내용물보기(name)
+        print("스팸 : " + str(self.스팸))
+        print("올리브유 : " + str(self.올리브유))
 
-while max(ages) < 87:
-    ages[0] += random.randint(0, 5)
-    ages[1] += random.randint(0, 5)
-    ages[2] += random.randint(0, 5)
-    ages[3] += random.randint(0, 5)
-    print(ages)
-
-print(f"{name[ages.index(max(ages))]}님이 올해 {max(ages)}세의 나이로 사망하셨습니다.")
+특별01 = 특별선물세트(6, 3, 2)
+특별01.내용물보기("특별세트 1호")
