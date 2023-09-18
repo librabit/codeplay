@@ -36,7 +36,7 @@ pass로 내용을 비워두었더라도 특별선물세트는 참치선물세트
             print(name)
             print("일반참치 : " + str(self.일반))
             print("야채참치 : " + str(self.야채))
-            print("고추참치 : " + str(self.야채))  
+            print("고추참치 : " + str(self.고추))  
     
     class 특별선물세트(참치선물세트):
         def __init__(self, 일반, 스팸, 올리브유):
