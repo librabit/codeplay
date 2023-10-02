@@ -7,16 +7,15 @@
 앞서 수업에서 실습문제로 만든 LoL 캐릭터 클래스 코드를 떠올려 보자.
 
     class 캐릭터():
-    def __init__(self, 체력, 공격력, 이속):
-        self.체력 = 체력
-        self.공격력 = 공격력
-        self.이속 = 이속
-
-    def 상태보기(self, name):
-        print(name)
-        print("체력 : {}".format(self.체력))
-        print("공격력 : {}".format(self.공격력))
-        print("이속 : {}".format(self.이속))
+        def __init__(self, 체력, 공격력, 이속):
+            self.체력 = 체력
+            self.공격력 = 공격력
+            self.이속 = 이속
+        def 상태보기(self, name):
+            print(name)
+            print(f"체력 : {self.체력}")
+            print(f"공격력 : {self.공격력}")
+            print(f"이속 : {self.이속}")
 
     class 챔피언(캐릭터):
         def __init__(self, 체력, 공격력, 이속, q, w, e, r):
@@ -24,14 +23,13 @@
             self.q = q
             self.w = w
             self.e = e
-            self.r = r
-    
-    def 상태보기(self, name):
-        super().상태보기(name)
-        print("Q스킬 : {}".format(self.q))
-        print("W스킬 : {}".format(self.w))
-        print("E스킬 : {}".format(self.e))        
-        print("R스킬 : {}".format(self.r))    
+            self.r = r  
+        def 상태보기(self, name):
+            super().상태보기(name)
+            print(f"Q스킬 : {self.q}")
+            print(f"W스킬 : {self.w}")
+            print(f"E스킬 : {self.e}")        
+            print(f"R스킬 : {self.r}")    
 
     미니언01 = 캐릭터(100, 5, 20)
     미니언01.상태보기("미니언1번의 상태")
