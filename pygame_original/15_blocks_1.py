@@ -9,6 +9,7 @@ screen_width = 640 # 가로크기
 screen_height = 640 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
+
 #화면 타이틀 (제목창
 pygame.display.set_caption("벽돌깨기")
 
