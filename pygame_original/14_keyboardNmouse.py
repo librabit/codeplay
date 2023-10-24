@@ -22,6 +22,7 @@ clock = pygame.time.Clock()
 
 #1-1 우리편 생성
 character = pygame.image.load("pygame_original/source/character.png")
+print(type(character))
 #스프라이트의 크기와 좌표 세팅하기 (움직임을 상정한 설정)
 character_size = character.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
