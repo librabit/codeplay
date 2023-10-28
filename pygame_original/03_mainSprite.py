@@ -37,7 +37,7 @@ while running:
     #추가한 이미지들을 화면에 띄우기
     screen.blit(bg, (0, 0)) # blit = 배경 그리기
     screen.blit(character, (character_xPos, character_yPos))
-
+    
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 #종료처리
