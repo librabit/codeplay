@@ -8,24 +8,18 @@ import requests
 from bs4 import BeautifulSoup
 
 browser = webdriver.Chrome(ChromeDriverManager().install())
-url = "https://comic.naver.com/webtoon?tab=fri"
+url = "https://comic.naver.com/webtoon?tab=sat"
 
 browser.get(url)
 time.sleep(1)
 
 soup = BeautifulSoup(browser.page_source, "lxml")
-
 top3 = soup.find("ul", attrs = {"class" : "TripleRecommendList__triple_recommend_list--vm8_k"})
-t3_title = top3.findAll("span", attrs = {"class" : "ContentTitle__title--e3qXt"})
-t3_author = top3.findAll("a", attrs = {"class" : "ContentAuthor__author--CTAAP"})
 
-# print(len(t3_title))
-for i in range(len(t3_title)):
-    print(f"{i+1}순위 웹툰 제목 : {t3_title[i].text} / 작가 : {t3_author[i].text}")
+title = top3.findAll("span", attrs = {"class" : "ContentTitle__title--e3qXt"})
+author = top3.findAll("a", attrs = {"class" : "ContentAuthor__author--CTAAP"})
+rate = top3.findAll("span", attrs = {"class" : "Rating__star_area--dFzsb"})
 
-
-# for j in top3[:10]:
-#     print(j.text)
-
-
-
+print("----------토요웹툰 추천3개----------")
+for i in range(len(title)):
+    print(f"{i+1} - {title[i].text} || {author[i].text} || {rate[i].text[2:]}")
