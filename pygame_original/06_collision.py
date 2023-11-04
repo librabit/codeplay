@@ -34,7 +34,7 @@ enemy_size = enemy.get_rect().size #스프라이트를 사각형 형태로 가�
 enemy_width = enemy_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 enemy_height = enemy_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 enemy_xPos = random.randint(0, (screen_width - enemy_width)) #화면 가로 정중앙
-enemy_yPos = 0 #화면 세로 맨아래
+enemy_yPos = 0 #화면 세로 맨위
 
 #이동할 좌표
 to_x = 0
@@ -48,8 +48,6 @@ enemy_speed = 10
 running = True #실행중인지 확인
 while running:
     dt = clock.tick(60) #게임화면이 초당 리프레시되는 횟수
-    # print("fps : " + str(clock.get_fps())) #화면상의 프레임레이트를 터미널 출력
-
     for event in pygame.event.get(): #키마 이벤트를 지속적으로 체크
         if event.type == pygame.QUIT: #창닫는 이벤트
             running = False
@@ -81,15 +79,15 @@ while running:
     elif character_xPos > screen_width - character_width:
        character_xPos = screen_width - character_width
     # 세로 스크린내 안벗어나게
-    # if character_yPos < 0:
-    #     character_yPos = 0
-    # elif character_yPos > screen_height - character_height:
-    #     character_yPos = screen_height - character_height
+    if character_yPos < 0:
+        character_yPos = 0
+    elif character_yPos > screen_height - character_height:
+        character_yPos = screen_height - character_height
 
     enemy_yPos += enemy_speed 
     if enemy_yPos > screen_height:
         enemy_yPos = 0
-        enemy_speed = random.randint(1, 3)
+        enemy_speed = random.randint(5, 15)
         enemy_xPos = random.randint(0, screen_width - enemy_width)
 
     #충돌 처리하기
