@@ -14,14 +14,14 @@ browser.get(url)
 time.sleep(1)
 
 soup = BeautifulSoup(browser.page_source, "lxml")
-top3 = soup.find("ul", attrs = {"class" : "ContentList__content_list--q5KXY"})
-# print(top3.text)
+top3 = soup.find("ul", attrs = {"class" : "AsideList__content_list--FXDvm"})
+print(top3.text)
 
 title = top3.findAll("span", attrs = {"class" : "ContentTitle__title--e3qXt"})
 author = top3.findAll("a", attrs = {"class" : "ContentAuthor__author--CTAAP"})
-rate = top3.findAll("span", attrs = {"class" : "Rating__star_area--dFzsb"})
+# rate = top3.findAll("span", attrs = {"class" : "Rating__star_area--dFzsb"})
 #                                     {"key1":"value1", "key2":"value2"}
 
-print("----------금요웹툰 20개----------")
-for i in range(len(title))[:20]:
-    print(f"{i+1} - {title[i].text} || {author[i].text} || {rate[i].text}")
+print("----------실시간 인기 웹툰 5---------")
+for i in range(len(title)):
+    print(f"{i+1} - {title[i].text} || {author[i].text}")
