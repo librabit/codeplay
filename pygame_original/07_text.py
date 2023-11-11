@@ -4,6 +4,8 @@ import random
 
 pygame.init() # 초기화 (반드시 필요)
 
+user_name = input("이름을 입력하시오:")
+
 #화면크기 설정
 screen_width = 480 # 가로크기
 screen_height = 640 # 세로크기
@@ -35,7 +37,15 @@ enemy_size = enemy.get_rect().size #스프라이트를 사각형 형태로 가�
 enemy_width = enemy_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 enemy_height = enemy_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 enemy_xPos = screen_width / 2 - enemy_width / 2 #화면 가로 정중앙
-enemy_yPos = screen_height / 2 - enemy_height / 2 #화면 세로 맨아래
+enemy_yPos = 0 #화면 세로 맨아래
+
+enemy2 = pygame.image.load("pygame_original/source/enemy.png")
+#적군 스프라이트 크기 및 위치 지정
+enemy2_size = enemy2.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
+enemy2_width = enemy2_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
+enemy2_height = enemy2_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
+enemy2_xPos = screen_width / 2 - enemy2_width / 2 #화면 가로 정중앙
+enemy2_yPos = screen_height - enemy2_height #화면 세로 맨아래
 
 # 폰트를 먼저 정해줘야함
 game_font = pygame.font.Font(None, 40) #폰트 객체 생성 (폰트종류, 크기) none은 기본
@@ -113,7 +123,8 @@ while running:
     #타이머 집어넣기
     #경과시간 계산
     elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 #밀리세컨드를 1000으로 나눠 초단위 표시
-    timer = game_font.render(str(int(total_time + elapsed_time)), False, (0, 0, 0)) #소숫점을 짜르기 위해 int로 바꾼 뒤, 문자열로 바꿔 글씨 출력
+    timer = game_font.render(f"time : {str(int(total_time + elapsed_time))}", False, (255, 255, 255)) #소숫점을 짜르기 위해 int로 바꾼 뒤, 문자열로 바꿔 글씨 출력
+    userName = game_font.render(f"{user_name}nimi saranamun", False, (0, 255, 255))
     # 출력할 글자, True, 글씨색
 
 
@@ -121,7 +132,8 @@ while running:
     screen.blit(bg, (0, 0)) # blit = 배경 그리기
     screen.blit(character, (character_xPos, character_yPos)) #주인공 그리기
     screen.blit(enemy, (enemy_xPos, enemy_yPos)) #적군 그리기
-    screen.blit(timer, (10, 10))
+    screen.blit(userName, (10, 10))
+    screen.blit(timer, (10, 50))
 
 
 
