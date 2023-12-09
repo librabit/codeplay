@@ -21,7 +21,7 @@ bar_xPos = screen_width / 2 - bar_width / 2
 bar_yPos = screen_height - bar_height
 bar_rect = pygame.Rect(bar_xPos, bar_yPos, bar_width, bar_height)
 
-#2. 굥 정의
+#2. 공 정의
 ball_size = 20
 
 ball_xPos = screen_width / 2
