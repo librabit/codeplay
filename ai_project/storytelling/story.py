@@ -1,54 +1,71 @@
-# 8 ~ 10장짜리 이미지가 클릭하면 넘어가는 이야기를 만드시오
-# 그림과 텍스트가 한 화면에 보이도록 하시오
-# 맨 앞장은 "타이틀" / 맨 뒷장은 "끝" 표시가 나오도록 하시오.
 import pygame
 import sys
+import os
 
 # 초기화
 pygame.init()
 
-# 창 크기
-window_size = (1024, 1024)
+# 화면 크기 설정
+screen_size = (1024, 1024)
+screen = pygame.display.set_mode(screen_size)
+pygame.display.set_caption("이미지 띄우기")
 
-# 창 생성
-screen = pygame.display.set_mode(window_size)
-pygame.display.set_caption("My Pygame Window")
+# 이미지 폴더 경로
+image_folder = "ai_project/storytelling/image/"
+image_files = sorted(os.listdir(image_folder))
 
-# 이미지 불러오기
-image_path = "ai_project/storytelling/image/001.png"  # 여기에 이미지 파일 경로를 입력하세요.
-image = pygame.image.load(image_path)
-image = pygame.transform.scale(image, (1024, 1024))
+# 텍스트 폰트 설정
+font = pygame.font.Font(None, 36)
 
-# 폰트 초기화
-pygame.font.init()
-font = pygame.font.SysFont(None, 40)  # 폰트와 크기 설정
+# 텍스트 내용 리스트
+texts = [
+    "Alien ship came to Earth",
+    "Alien Attack",
+    "Military Strike Back",
+    "Military Destroyed",
+    "A Boy stand in front of Alien army with a mic",
+    "Boy started to sing and Alien was painful with that sound",
+    "Alien Defeated",
+    "Boy became Global president"
+]
 
-# 텍스트 생성
-text = "Long Long time ago, there's a tiger"
-text_render = font.render(text, True, (255, 0, 0))  # 텍스트 렌더링 및 색상 설정
+# 현재 이미지와 텍스트 인덱스
+current_index = 0
+current_image_path = os.path.join(image_folder, image_files[current_index])
+try:
+    image = pygame.image.load(current_image_path)
+except pygame.error as e:
+    print(f"이미지를 로드하는 중 오류 발생: {e}")
+    sys.exit()
+image = pygame.transform.scale(image, screen_size)
 
-# 게임 루프
+# 메인 루프
 while True:
-    # 이벤트 처리
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # 마우스 클릭 시 다음 이미지로 전환
+            current_index = (current_index + 1) % len(image_files)
+            current_image_path = os.path.join(image_folder, image_files[current_index])
+            try:
+                image = pygame.image.load(current_image_path)
+            except pygame.error as e:
+                print(f"이미지를 로드하는 중 오류 발생: {e}")
+                sys.exit()
+            image = pygame.transform.scale(image, screen_size)
 
-    # 게임 로직
+    # 화면을 흰색으로 채우기
+    screen.fill((255, 255, 255))
 
-    # 그리기
-    screen.fill((255, 255, 255))  # 화면을 흰색으로 채웁니다.
-    screen.blit(image, (0, 0))   # 이미지를 화면에 표시합니다.
+    # 이미지 그리기
+    screen.blit(image, (0, 0))
 
-    # 텍스트 위치 계산 (가운데 아래)
-    text_rect = text_render.get_rect(center=(window_size[0] // 2, window_size[1] - 40))
+    # 텍스트 생성 및 그리기
+    text = font.render(texts[current_index], True, (0, 0, 0))
+    text_rect = text.get_rect(center=(screen_size[0] // 2, screen_size[1] - 30))
+    screen.blit(text, text_rect)
 
-    # 텍스트를 화면에 표시
-    screen.blit(text_render, text_rect)
-
-    # 업데이트된 화면 표시
+    # 화면 업데이트
     pygame.display.flip()
-
-    # 초당 프레임 수 조절 (30 프레임으로 설정)
-    pygame.time.Clock().tick(30)
