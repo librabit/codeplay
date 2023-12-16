@@ -39,7 +39,7 @@ block_height = screen_height / 20
 block_xPos = 0
 block_yPos = 0
 
-blocks = [[], [], [], [], [], [], [], [], [], []] #[[] for i in range(10)] #10개의 빈 리스트 생성
+blocks = [[] for _ in range(10)] #[[] for i in range(10)] #10개의 빈 리스트 생성
 block_color = [[], [], [], [], [], [], [], [], [], []] #10개의 빈 리스트 생성
 
 for i in range(10):
@@ -110,7 +110,7 @@ while running:
                     ball_x_speed *= -1
                     ball_y_speed *= -1
                     blocks[i][j] = 0 #블럭의 정보를 삭제
-    print(blocks)                
+         
     pygame.display.update()
 
 #종료처리
