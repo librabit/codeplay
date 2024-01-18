@@ -259,3 +259,11 @@ print(f"최고총점 : {top}점 => {classes + 1}반")
 # c = a + b
 # d = print()
 # print(c)
+
+
+
+abc = ["사과", "복숭아", '딸기']
+k = ["apple", 'peach', 'strawberry']
+
+#영어의 한국어 뜻은 한국어 입니다. x 3줄 반복문으로.
+
