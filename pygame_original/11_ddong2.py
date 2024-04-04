@@ -112,6 +112,11 @@ while running:
     elif character_xPos > screen_width - character_width:
         character_xPos = screen_width - character_width
     
+    if character_yPos < 0:
+        character_yPos = 0
+    elif character_yPos > screen_height - character_height:
+        character_yPos = screen_height - character_height
+    
 
     # 4. 충돌처리
     character_rect = character.get_rect()
