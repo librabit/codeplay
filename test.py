@@ -68,16 +68,7 @@
 # print("solution 함수의 반환 값은", ret2, "입니다.")
 
 
+price_list = [32100, 32150, 32000, 32500]
 
-
-
-words = "아 진짜김민준, 오늘정말김민준, 왕지호개웃겼어김민준진짜"
-
-word_list = words.split()
-
-print(word_list)
-
-lists = ["왕지호", "김민준", "고준석", "이준우"]
-
-names = "바보 ㅋㅋㅋ ".join(lists)
-print(names)
+for i in range(len(price_list)):
+    print(price_list[i])

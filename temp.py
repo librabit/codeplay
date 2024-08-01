@@ -1,34 +1,148 @@
-name = ['ê¹€ì´ì•ˆ','ì†¡í˜„ìˆ˜', 'ì†¡ìœ¤ìˆ˜', 'ì •ë¯¼ìš°', 'ì›ë™ì—°']
-height = [170, 180, 160, 150, 140]
+# # # name = ['±èÀÌ¾È','¼ÛÇö¼ö', '¼ÛÀ±¼ö', 'Á¤¹Î¿ì', '¿øµ¿¿¬']
+# # # height = [170, 180, 160, 150, 140]
 
-for k in range(5):
-    print(f"ì¹œêµ¬ì´ë¦„ : {name[k]} / í‚¤ : {height[k]}")
+# # # for k in range(5):
+# # #     print(f"Ä£±¸ÀÌ¸§ : {name[k]} / Å° : {height[k]}")
 
-max = max(height)
-max_idx = height.index(max)
-small = min(height)
-small_idx = height.index(small)
-avr = sum(height) / len(height)
-low = []
-high = []
+# # # max = max(height)
+# # # max_idx = height.index(max)
+# # # small = min(height)
+# # # small_idx = height.index(small)
+# # # avr = sum(height) / len(height)
+# # # low = []
+# # # high = []
 
-high.append()
+# # # high.append()
 
-print("í‰ê· í‚¤ :", avr)
+# # # print("Æò±ÕÅ° :", avr)
 
-name[height.index(í‚¤)]
+# # # name[height.index(Å°)]
 
-print(f"í‚¤ ì ¤í°ë†ˆ : {name[max_idx]} / {max} \ní‚¤ ì ¤ì‘ì€ë†ˆ : {name[small_idx]} / {small}")
+# # # print(f"Å° Á©Å«³ğ : {name[max_idx]} / {max} \nÅ° Á©ÀÛÀº³ğ : {name[small_idx]} / {small}")
 
-# í™”ë©´ì— ì•„ë˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì‹œì˜¤
-'''
-ì œì¼ í‚¤ í° ì¹œêµ¬ : ì´ë¦„ / í‚¤
-ì œì¼ í‚¤ ì‘ì€ ì¹œêµ¬ : ì´ë¦„ / í‚¤
-í‰ê· ë³´ë‹¤ ì‘ì€ ë…€ì„ë“¤ : ì´ë¦„ë“¤ (ë¯¸ë§Œ)
-í‰ê· ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì€ ë…€ì„ë“¤ : ì´ë¦„ë“¤ (ì´ìƒ)
-'''
-for o in range(len(height)):
-    if height[o] < avr:
-        pass
-    else:
-        pass
+# # # # È­¸é¿¡ ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ½Ã¿À
+# # # '''
+# # # Á¦ÀÏ Å° Å« Ä£±¸ : ÀÌ¸§ / Å°
+# # # Á¦ÀÏ Å° ÀÛÀº Ä£±¸ : ÀÌ¸§ / Å°
+# # # Æò±Õº¸´Ù ÀÛÀº ³à¼®µé : ÀÌ¸§µé (¹Ì¸¸)
+# # # Æò±Õº¸´Ù Å©°Å³ª °°Àº ³à¼®µé : ÀÌ¸§µé (ÀÌ»ó)
+# # # '''
+# # # for o in range(len(height)):
+# # #     if height[o] < avr:
+# # #         pass
+# # #     else:
+# # #         pass
+
+
+# # # »óÀåÁÖ½Ä¼ö = '5,343,323'
+# # # »óÀåÁÖ½Ä¼ö2 = int(»óÀåÁÖ½Ä¼ö.replace(',', ''))
+# # # print(»óÀåÁÖ½Ä¼ö2, type(»óÀåÁÖ½Ä¼ö2))
+
+# # # name1 = "±è¹Î¼ö" 
+# # # age1 = 10
+# # # name2 = "ÀÌÃ¶Èñ"
+# # # age2 = 13
+
+# # # print(f'ÀÌ¸§ : {name1}  ³ªÀÌ : {age1}')
+# # # print(f'ÀÌ¸§ : {name2}  ³ªÀÌ : {age2}')
+
+# # # ºĞ±â = "2020/03(E) (IFRS¿¬°á)"
+# # # print(ºĞ±â[:7])
+# # # data = "   »ï¼ºÀüÀÚ    "
+# # # print(data.strip())
+# # # # ticker.upper()
+# # # ticker = "btc_krw"
+# # # t = ticker.split('_')
+# # # print(t)
+# # # date = "¹è°æÁøÀÌÁØ¿ì¹Ùº¸"
+# # # d = date.split('ÀÌÁØ¿ì')
+# # # print(d)
+
+# # movie = ['¹èÆ®¸Ç', '¸ÇÆ®¹è', 'ÅÂ¹è¸Ç']
+# # star = ['ÄÚµù½Ü', 'ÀÌÁØ¿ì', '¹é¿µÁø']
+# # movie.append("¾ØÆ®¸Ç")
+# # movie.insert(1, '½ºÆÄÀÌ´õ¸Ç')
+# # # del movie[3]
+# # # movie.remove("°æÁø¸Ç")
+# # print(movie)
+# # names = movie + star
+# # print(names)
+
+# # nums = [1, 2, 3, 4, 5, 6, 7]
+# # print(min(nums))
+# # print(max(nums))
+# # print(sum(nums))
+# # print(len(nums))
+# # print(sum(nums)/len(nums))
+# # # all = 0
+# # # for i in nums:
+# # #     all += i
+# # # print(all)
+
+
+
+# # num = input("¿µ¾î : ")
+
+# # if num.islower():
+# #     print(num.upper())
+# # else:
+# #     print(num.lower())
+
+
+# # def max(a,b):
+# #     if a>b:
+# #         return a
+# #     else:
+# #         return b
+# # a, b, c = input(""), input(), input()
+# # print(max(a, max(b, c)))
+
+# # 10Áø¼ö¸¦ °ğ¹Ù·Î 2Áø¼ö·Î ¹Ù²Ù±â.
+# # 10Áø¼ö 5 -> 2Áø¼ö 101
+# # 10Áø¼ö 24 -> 2Áø¼ö 11000
+
+# def two(ten): #5
+#     answer = ""
+#     if ten > 0:
+#         while ten:
+#             answer += str(ten % 2)
+#             ten //= 2
+#         return int(answer[::-1])
+#     else:
+#         return ten
+# print(two(132))
+
+# t = input("°è»ê½ÄÀ» ³ÖÀ¸½Ã¿À: ")
+# print(t, eval(t))
+
+# a = input("¼ıÀÚ")
+
+# if int(a) % 2 == 0:
+#     print("Even Number")
+# else:
+#     print("Odd Number")
+
+# 1. ÇÔ¼öÀÇ Á¤ÀÇ
+a = 0
+def calc1(a, b):
+    result = a + b # calc¾È¿¡¼­¸¸ ¾²´Â Áö¿ªº¯¼ö
+    return result
+
+def calc2(a, b):
+    result = a - b
+    return result
+
+# 2. ÇÔ¼ö È£Ãâ
+
+while True:
+    c = input("¿øÇÏ´Â °è»ê 1.µ¡¼À 2.»¬¼À 9.³¡³»±â")
+    n1 = int(input("¼ıÀÚ1 : "))
+    n2 = int(input("¼ıÀÚ2 : "))
+    if c == "9":
+        print("°è»ê±â Á¾·á")
+        break
+    elif c == "1":
+        a = calc1(n1, n2)
+    elif c == "2":
+        a = calc2(n1, n2)
+    print("°è»ê°á°ú : ", a)
