@@ -1,42 +1,42 @@
-# 모듈과 패키지
+모듈화# 모듈과 패키지
 
 잘 짜여진 코드는 쓰고 또 써도 쓸때마다 이득.  
 그래서 필요한 것이, 유용한 코드를 클래스/함수화 하고, 이 코드를 별도의 파일로 만들어두는 모듈화/패키지화가 필요하다.  
 
 ## 1. 모듈화
-앞서 수업에서 실습문제로 만든 LoL 캐릭터 클래스 코드를 떠올려 보자.
+앞서 수업에서 실습문제로 만든 LoL char 클래스 코드를 떠올려 보자.
 
-    class 캐릭터():
-        def __init__(self, 체력, 공격력, 이속):
-            self.체력 = 체력
-            self.공격력 = 공격력
-            self.이속 = 이속
-        def 상태보기(self, name):
+    class char():
+        def __init__(self, hp, attack, speed):
+            self.hp = hp
+            self.atk = atk
+            self.speed = speed
+        def stat(self, name):
             print(name)
-            print(f"체력 : {self.체력}")
-            print(f"공격력 : {self.공격력}")
-            print(f"이속 : {self.이속}")
+            print(f"hp : {self.hp}")
+            print(f"atk : {self.atk}")
+            print(f"speed : {self.speed}")
 
-    class 챔피언(캐릭터):
-        def __init__(self, 체력, 공격력, 이속, q, w, e, r):
-            super().__init__(체력, 공격력, 이속)
+    class champ(char):
+        def __init__(self, hp, atk, speed, q, w, e, r):
+            super().__init__(hp, atk, speed)
             self.q = q
             self.w = w
             self.e = e
             self.r = r  
-        def 상태보기(self, name):
-            super().상태보기(name)
-            print(f"Q스킬 : {self.q}")
-            print(f"W스킬 : {self.w}")
-            print(f"E스킬 : {self.e}")        
-            print(f"R스킬 : {self.r}")    
+        def stat(self, name):
+            super().stat(name)
+            print(f"Q_skill : {self.q}")
+            print(f"W_skill : {self.w}")
+            print(f"E_skill : {self.e}")        
+            print(f"R_skill : {self.r}")    
 
-    미니언01 = 캐릭터(100, 5, 20)
-    미니언01.상태보기("미니언1번의 상태")
-    야스오 = 챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
-    야스오.상태보기("야스오의 상태")
+    미니언01 = char(100, 5, 20)
+    미니언01.stat("미니언1번의 상태")
+    야스오 = champ(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
+    야스오.stat("야스오의 상태")
 
-위의 코드에서 캐릭터들은 블루진영과 레드진영 양측에서 등장해야 한다.  
+위의 코드에서 char들은 블루진영과 레드진영 양측에서 등장해야 한다.  
 그럴때, 위의 클래스를 양쪽 진영에서 모두 동일한 코드를 사용해야 한다면, 모듈로 만들어두고 진영별로 각자 가져다 쓸 수 있을것이다.
 
 그렇다면 어떻게 모듈을 만들까?
@@ -45,57 +45,57 @@
 위의 예제에서 클래스 선언부분만 따로 파일로 저장한다.
 
     # character_class.py로 아래 내용 저장
-    class 캐릭터():
-    def __init__(self, 체력, 공격력, 이속):
-        self.체력 = 체력
-        self.공격력 = 공격력
-        self.이속 = 이속
+    class char():
+        def __init__(self, hp, atk, speed):
+            self.hp = hp
+            self.atk = atk
+            self.speed = speed
 
-    def 상태보기(self, name):
-        print(name)
-        print("체력 : {}".format(self.체력))
-        print("공격력 : {}".format(self.공격력))
-        print("이속 : {}".format(self.이속))
+        def stat(self, name):
+            print(name)
+            print("hp : {}".format(self.hp))
+            print("atk : {}".format(self.atk))
+            print("speed : {}".format(self.speed))
 
-    class 챔피언(캐릭터):
-        def __init__(self, 체력, 공격력, 이속, q, w, e, r):
-            super().__init__(체력, 공격력, 이속)
+    class champ(char):
+        def __init__(self, hp, atk, speed, q, w, e, r):
+            super().__init__(hp, atk, speed)
             self.q = q
             self.w = w
             self.e = e
             self.r = r
     
-    def 상태보기(self, name):
-        super().상태보기(name)
-        print("Q스킬 : {}".format(self.q))
-        print("W스킬 : {}".format(self.w))
-        print("E스킬 : {}".format(self.e))        
-        print("R스킬 : {}".format(self.r)) 
+        def stat(self, name):
+            super().stat(name)
+            print("Q_skill : {}".format(self.q))
+            print("W_skill : {}".format(self.w))
+            print("E_skill : {}".format(self.e))        
+            print("R_skill : {}".format(self.r)) 
 
 ### 2. 진영별 파일을 만들고, 모듈을 불러와 객체 생성
 
     # blue_team.py 파일을 만들고 저장
     import character_class
 
-    미니언01 = character_class.캐릭터(100, 5, 20)
-    미니언01.상태보기("미니언1번의 상태")
-    야스오 = character_class.챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
-    야스오.상태보기("야스오의 상태")
+    미니언01 = character_class.char(100, 5, 20)
+    미니언01.stat("미니언1번의 상태")
+    야스오 = character_class.champ(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
+    야스오.stat("야스오의 상태")
 
     # red_team.py 파일을 만들고 저장
     import character_class
 
-    미니언01 = character_class.캐릭터(100, 5, 20)
-    미니언01.상태보기("미니언1번의 상태")
-    티모 = character_class.챔피언(10, 10000, 5000, "실명다트", "이속증가", "맹독다트", "버섯함정") 
-    티모.상태보기("티모의 상태")
+    미니언01 = character_class.char(100, 5, 20)
+    미니언01.stat("미니언1번의 상태")
+    티모 = character_class.champ(10, 10000, 5000, "실명다트", "speed증가", "맹독다트", "버섯함정") 
+    티모.stat("티모의 상태")
 
 앞서 만든 character_class.py 파일은 2개의 클래스가 정의된 파일이다.  
 이 파일을 다른 파일이 가져다 쓰기 위해서는(모듈사용) 3가지 규칙이 필요하다.
 > 
 > 1. 모듈 파일이 사용하고자 하는 파일과 경로상 같은 곳에 있을 것 (같은 폴더내에 존재할 것)
 > 2. 불러오는 파일의 맨 윗줄에 import 명령어로 파일명을 .py를 제외하고 적어줄 것 (해당 파일을 모듈로 쓰기위해 가지고 들어오겠다는 의미)
-> 3. 모듈을 사용할 때에는 모듈명 뒤에 점을 찍고 클래스명을 적어 적용할 것 (미니언01 = character_class.캐릭터(100, 5, 20) => **미니언01**이라는 인스턴스를 **character_class 라는 모듈** 안에 있는 **캐릭터라는 클래스**를 이용해 생성하겠다는 의미)  
+> 3. 모듈을 사용할 때에는 모듈명 뒤에 점을 찍고 클래스명을 적어 적용할 것 (미니언01 = character_class.char(100, 5, 20) => **미니언01**이라는 인스턴스를 **character_class 라는 모듈** 안에 있는 **char라는 클래스**를 이용해 생성하겠다는 의미)  
 
 이렇게 특별한 기능의 코드를 별도의 파일로 저장하고, 필요할 때 불러다 쓰는 방법을 **"모듈화"**라고 부르며, 각각의 파일은 모듈이라 부른다.
 
@@ -108,7 +108,7 @@
 
     import character_class as cs
 
-    미니언01 = cs.캐릭터(100, 5, 20)
+    미니언01 = cs.char(100, 5, 20)
 
 위처럼 **as**를 붙이고 원하는 이름을 적으면 그 별명으로 클래스를 사용할 수 있다.
 
@@ -118,12 +118,12 @@
 모듈을 불러오고, 그 안의 함수를 쓰는 방법은 별명이든 본명이든 불러온 모듈명을 적어주고 사용을 해야하는 단점이 있다.  
 모듈 내부의 클래스, 함수, 변수 이름을 알고 있다면 해당 클래스, 함수, 변수를 바로 가져와 쓸 수 있다.
 
-    from character_class import 캐릭터, 챔피언
+    from character_class import char, champ
 
-    미니언01 = 캐릭터(100, 5, 20)
-    미니언01.상태보기("미니언1번의 상태")
-    야스오 = 챔피언(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
-    야스오.상태보기("야스오의 상태")
+    미니언01 = char(100, 5, 20)
+    미니언01.stat("미니언1번의 상태")
+    야스오 = champ(100, 1000, 500, "찌르기", "장막", "돌진", "난도질") 
+    야스오.stat("야스오의 상태")
 
 위의 예제에서 import 뒤에 적힌 2개의 클래스명은 불러온 파일 안에서 직접 선언한 클래스인 것으로 간주된다.  
 그래서 모듈명을 따로 쓰지 않고 직접 사용이 가능하다.

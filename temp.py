@@ -1,148 +1,27 @@
-# # # name = ['±èÀÌ¾È','¼ÛÇö¼ö', '¼ÛÀ±¼ö', 'Á¤¹Î¿ì', '¿øµ¿¿¬']
-# # # height = [170, 180, 160, 150, 140]
+'''
+1. ì¡°ê±´ë¬¸
+if ~ else ~
+2. ì¡°ê±´ë°˜ë³µë¬¸
+while ~:
+'''
 
-# # # for k in range(5):
-# # #     print(f"Ä£±¸ÀÌ¸§ : {name[k]} / Å° : {height[k]}")
-
-# # # max = max(height)
-# # # max_idx = height.index(max)
-# # # small = min(height)
-# # # small_idx = height.index(small)
-# # # avr = sum(height) / len(height)
-# # # low = []
-# # # high = []
-
-# # # high.append()
-
-# # # print("Æò±ÕÅ° :", avr)
-
-# # # name[height.index(Å°)]
-
-# # # print(f"Å° Á©Å«³ð : {name[max_idx]} / {max} \nÅ° Á©ÀÛÀº³ð : {name[small_idx]} / {small}")
-
-# # # # È­¸é¿¡ ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ½Ã¿À
-# # # '''
-# # # Á¦ÀÏ Å° Å« Ä£±¸ : ÀÌ¸§ / Å°
-# # # Á¦ÀÏ Å° ÀÛÀº Ä£±¸ : ÀÌ¸§ / Å°
-# # # Æò±Õº¸´Ù ÀÛÀº ³à¼®µé : ÀÌ¸§µé (¹Ì¸¸)
-# # # Æò±Õº¸´Ù Å©°Å³ª °°Àº ³à¼®µé : ÀÌ¸§µé (ÀÌ»ó)
-# # # '''
-# # # for o in range(len(height)):
-# # #     if height[o] < avr:
-# # #         pass
-# # #     else:
-# # #         pass
-
-
-# # # »óÀåÁÖ½Ä¼ö = '5,343,323'
-# # # »óÀåÁÖ½Ä¼ö2 = int(»óÀåÁÖ½Ä¼ö.replace(',', ''))
-# # # print(»óÀåÁÖ½Ä¼ö2, type(»óÀåÁÖ½Ä¼ö2))
-
-# # # name1 = "±è¹Î¼ö" 
-# # # age1 = 10
-# # # name2 = "ÀÌÃ¶Èñ"
-# # # age2 = 13
-
-# # # print(f'ÀÌ¸§ : {name1}  ³ªÀÌ : {age1}')
-# # # print(f'ÀÌ¸§ : {name2}  ³ªÀÌ : {age2}')
-
-# # # ºÐ±â = "2020/03(E) (IFRS¿¬°á)"
-# # # print(ºÐ±â[:7])
-# # # data = "   »ï¼ºÀüÀÚ    "
-# # # print(data.strip())
-# # # # ticker.upper()
-# # # ticker = "btc_krw"
-# # # t = ticker.split('_')
-# # # print(t)
-# # # date = "¹è°æÁøÀÌÁØ¿ì¹Ùº¸"
-# # # d = date.split('ÀÌÁØ¿ì')
-# # # print(d)
-
-# # movie = ['¹èÆ®¸Ç', '¸ÇÆ®¹è', 'ÅÂ¹è¸Ç']
-# # star = ['ÄÚµù½Ü', 'ÀÌÁØ¿ì', '¹é¿µÁø']
-# # movie.append("¾ØÆ®¸Ç")
-# # movie.insert(1, '½ºÆÄÀÌ´õ¸Ç')
-# # # del movie[3]
-# # # movie.remove("°æÁø¸Ç")
-# # print(movie)
-# # names = movie + star
-# # print(names)
-
-# # nums = [1, 2, 3, 4, 5, 6, 7]
-# # print(min(nums))
-# # print(max(nums))
-# # print(sum(nums))
-# # print(len(nums))
-# # print(sum(nums)/len(nums))
-# # # all = 0
-# # # for i in nums:
-# # #     all += i
-# # # print(all)
+total_entrance_fee = 0 #ê°€ì¡±ì˜ ìž…ìž¥ê¶Œ ê°€ê²© ì´ í•© 112,000
+family_age = [5, 10, 10, 21, 80, 44, 1, 7, 32, 100] # 10ëª…ì˜ ê°€ì¡±ì´ ë°©ë¬¸. ì›í•˜ëŠ” ë‚˜ì´ë¥¼ 10ê°œ ë„£ìœ¼ì‹œì˜¤.
+member = 0 
+# 112,000
+while member < len(family_age): # member ì˜ ê°’ì´ f_aì˜ ê°¯ìˆ˜ë³´ë‹¤ ìž‘ì€ ë™ì•ˆ ë°˜ë³µ
+    if family_age[member] <= 3: #0~3
+        total_entrance_fee += 0 
+    elif family_age[member] <= 7: #4~7
+        total_entrance_fee += 1000
+    elif family_age[member] <= 19: #8~19
+        total_entrance_fee += 5000
+    else:
+        total_entrance_fee += 20000
+    member += 1
+print(total_entrance_fee)
 
 
 
-# # num = input("¿µ¾î : ")
-
-# # if num.islower():
-# #     print(num.upper())
-# # else:
-# #     print(num.lower())
 
 
-# # def max(a,b):
-# #     if a>b:
-# #         return a
-# #     else:
-# #         return b
-# # a, b, c = input(""), input(), input()
-# # print(max(a, max(b, c)))
-
-# # 10Áø¼ö¸¦ °ð¹Ù·Î 2Áø¼ö·Î ¹Ù²Ù±â.
-# # 10Áø¼ö 5 -> 2Áø¼ö 101
-# # 10Áø¼ö 24 -> 2Áø¼ö 11000
-
-# def two(ten): #5
-#     answer = ""
-#     if ten > 0:
-#         while ten:
-#             answer += str(ten % 2)
-#             ten //= 2
-#         return int(answer[::-1])
-#     else:
-#         return ten
-# print(two(132))
-
-# t = input("°è»ê½ÄÀ» ³ÖÀ¸½Ã¿À: ")
-# print(t, eval(t))
-
-# a = input("¼ýÀÚ")
-
-# if int(a) % 2 == 0:
-#     print("Even Number")
-# else:
-#     print("Odd Number")
-
-# 1. ÇÔ¼öÀÇ Á¤ÀÇ
-a = 0
-def calc1(a, b):
-    result = a + b # calc¾È¿¡¼­¸¸ ¾²´Â Áö¿ªº¯¼ö
-    return result
-
-def calc2(a, b):
-    result = a - b
-    return result
-
-# 2. ÇÔ¼ö È£Ãâ
-
-while True:
-    c = input("¿øÇÏ´Â °è»ê 1.µ¡¼À 2.»¬¼À 9.³¡³»±â")
-    n1 = int(input("¼ýÀÚ1 : "))
-    n2 = int(input("¼ýÀÚ2 : "))
-    if c == "9":
-        print("°è»ê±â Á¾·á")
-        break
-    elif c == "1":
-        a = calc1(n1, n2)
-    elif c == "2":
-        a = calc2(n1, n2)
-    print("°è»ê°á°ú : ", a)
