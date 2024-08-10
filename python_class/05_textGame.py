@@ -50,10 +50,6 @@ class SeizeTank(AttackUnit):
     def seize(self): #시즈모드시 공격력 강화. 이동불가
         if SeizeTank.seizeMode == False:
             return
-        
-        if self.s
-            
-
 class AirUnit:
     def __init__(self, fly_speed):
         self.fly_speed = fly_speed
@@ -61,7 +57,6 @@ class AirUnit:
     def fly(self, name, direction):
         print("{} : {}방향으로 {}속도로 이동중".format(self.name, direction, self.fly_speed))
     
-
 class AirAttackUnit(AttackUnit, AirUnit): #다중상속. 쉼표로 구분
     def __init__(self, name, hp, damage, fly_speed):
         AttackUnit.__init__(self, name, 0, hp, damage)
