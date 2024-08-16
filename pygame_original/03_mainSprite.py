@@ -22,7 +22,6 @@ character_size = character.get_rect().size #스프라이트를 사각형 형태�
 character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
 character_height = character_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 
-
 character_xPos = (screen_width / 2) - (character_width / 2) #화면 가로 정중앙
 character_yPos = screen_height - character_height #화면 세로 맨아래 
 
@@ -32,7 +31,7 @@ while running:
     for event in pygame.event.get(): #키마 이벤트를 지속적으로 체크
         if event.type == pygame.QUIT: #창닫는 이벤트
             running = False
-    # screen.fill((200, 200, 200)) # 배경을 이미지가 아닌 색으로 지정하는 방법 RGB
+    screen.fill((200, 200, 200)) # 배경을 이미지가 아닌 색으로 지정하는 방법 RGB
     
     #추가한 이미지들을 화면에 띄우기
     screen.blit(bg, (0, 0)) # blit = 배경 그리기
