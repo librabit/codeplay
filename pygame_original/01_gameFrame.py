@@ -17,5 +17,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+
 #종료처리
 pygame.quit()
