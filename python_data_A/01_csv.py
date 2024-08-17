@@ -1,4 +1,5 @@
 import csv
+import matplotlib.pyplot as plt
 f = open('python_data_A\csv_data\yp.csv', 'r', encoding='utf8')
 data = csv.reader(f, delimiter=',')
 print(f, type(f), data, type(data))
@@ -12,6 +13,9 @@ max_day = '' # 최고기온 날짜
 my_min = 0
 my_max = 0
 my_day = "1979-10-26" # 탕탕절
+my_birthday = [2010, 2011, 2012, 2013]
+my_temp = [-20, -10, 4, -11]
+# 2010-01-12
 
 for row in data:
     row[0] = row[0].lstrip()
@@ -27,10 +31,12 @@ for row in data:
         if row[-1] > max:
             max = row[-1]
             max_day = row[0]
-            
+
         if row[0] == my_day:
             my_max, my_min = row[-1], row[-2]
 
+plt.plot(my_birthday, my_temp, color ='r', linestyle='--', label='dashed')
+plt.show()
 print(f"최저기온 : {min} 날짜 : {min_day}")
 print(f"최고기온 : {max} 날짜 : {max_day}")
 print(f"탕탕절 최고기온 : {my_max} 최저기온 : {my_min}")
