@@ -124,7 +124,7 @@ while running:
     #경과시간 계산
     elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 #밀리세컨드를 1000으로 나눠 초단위 표시
     timer = game_font.render(f"time : {str(int(total_time + elapsed_time))}", False, (255, 255, 255)) #소숫점을 짜르기 위해 int로 바꾼 뒤, 문자열로 바꿔 글씨 출력
-    userName = game_font.render(f"{user_name}nimi saranamun", False, (0, 255, 255))
+    userName = game_font.render(f"{user_name}", False, (0, 255, 255))
     # 출력할 글자, True, 글씨색
 
 
