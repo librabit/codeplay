@@ -5,8 +5,8 @@ import random
 pygame.init()
 
 #화면크기 설정
-screen_width = 500 # 가로크기
-screen_height = 500 # 세로크기
+screen_width = 800 # 가로크기
+screen_height = 800 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 #화면 타이틀 (GUI 제목창)
@@ -49,7 +49,7 @@ while running:
     # pygame.draw.circle(screen, (0, 255, 100), (screen_width / 2, screen_height / 2), 100) # 채워진 원 (대상, 색상, 중심점, 반지름)
     # pygame.draw.circle(screen, (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (screen_width / 2, screen_height / 2), r, 50) # 테두리 원 (대상, 색상, 중심점, 반지름, 선굵기)
     
-    # 사각형
+    # # 사각형
     # pygame.draw.rect(screen, (0, 0, 0), (screen_width / 2, screen_height / 2, 102, 12)) # 채워진 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기)
     # pygame.draw.rect(screen, (55, 55, 255), ((screen_width / 2)+1, (screen_height / 2) + 1, 80, 10)) # 채워진 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기)
     # pygame.draw.rect(screen, (155, 155, 55), ((screen_width / 2), (screen_height / 2), r, r), 5) # 테두리 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기, 선 굵기)
@@ -63,8 +63,8 @@ while running:
     # pygame.draw.ellipse(screen, (155, 155, 55), (screen_width / 2 - 100, screen_height / 2 - 100, 100, 100), 5) # 테두리 타원 (대상, 색상, 시작점 + 가로크기 + 세로크기, 선 굵기)
     
     # # 다각형
-    # pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 200], [200, 200]]) # 삼각형 / 점은 3개 이상. 윗쪽부터 반시계방향으로 좌표 작성
-    # pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 100], [0, 200], [100, 300], [150, 250], [200, 200], [200, 100]], 5) # 육각형. 점의 갯수만큼 추가하면 됨.
+    pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 200], [200, 200]]) # 삼각형 / 점은 3개 이상. 윗쪽부터 반시계방향으로 좌표 작성
+    pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 100], [0, 200], [100, 300], [550, 250], [200, 200], [200, 100]], 5) # 육각형. 점의 갯수만큼 추가하면 됨.
         
     pygame.display.update() # 게임화면을 새로고침해줌.
 
