@@ -19,7 +19,7 @@ plt.pie(size, labels=label, autopct='%.1f%%', colors=color, explode=(0,0,0.2,0))
 plt.legend()
 plt.show()
 
-csv = comma seperated value
+# csv = comma seperated value
 
 f = open('', 'r', encoding='utf8')
 data = csv.reader(f, delimiter=',')
