@@ -1,43 +1,58 @@
-# '''
-# 1. 조건문
-# if ~ else ~
-# 2. 조건반복문
-# while ~:
-# '''
+# for 반복문
+# 횟수반복/순회반복
+# 1부터 10까지 세는 반복문 만들어보자.
 
-# total_entrance_fee = 0 #가족의 입장권 가격 총 합 112,000
-# family_age = [5, 10, 10, 21, 80, 44, 1, 7, 32, 100] # 10명의 가족이 방문. 원하는 나이를 10개 넣으시오.
-# member = 0 
-# # 112,000
-# while member < len(family_age): # member 의 값이 f_a의 갯수보다 작은 동안 반복
-#     if family_age[member] <= 3: #0~3
-#         total_entrance_fee += 0 
-#     elif family_age[member] <= 7: #4~7
-#         total_entrance_fee += 1000
-#     elif family_age[member] <= 19: #8~19
-#         total_entrance_fee += 5000
-#     else:
-#         total_entrance_fee += 20000
-#     member += 1
-# print(total_entrance_fee)
+# 조건 반복 / 횟수반복 또는 순회반복.
 
-# data = [
-#     [ 2000,  3050,  2050,  1980],
-#     [ 7500,  2050,  2050,  1980],
-#     [15450, 15050, 15550, 14900]
-# ]
 
-# result = []
-# print(data)
-# for i in range(len(data)): #3번반복
-#     temp = []
-#     for j in range(len(data[i])): #4번반복
-#         temp.append(data[i][j] * 1.00014)
-#     result.append(temp)
-# print(data)
+# number = 1
+# while number <= 10: # 반복의 종료조건만 있으면 됨.
+#     print("조건반복문", number)
+#     number += 1
 
-apart = [ [101, 102], [201, 202], [301, 302] ]
+# print(list(range(1, 11, 1))) # 1-10
+# print(list(range(10, 0, -1))) # 10-1
 
-for i in apart:
-    for j in i:
-        print(f"{j} 호")
+# tt = [10, 20, 30, 40]
+# tt[:3] #슬라이스
+
+# for i in range(10): # 반복할 재료와 재료를 담을 변수
+#     print("순회반복문", i + 1)
+
+# # range함수 : 범위와 옵셋을 정해 숫자의 묶음을 생성하는 함수
+
+drink = ["콜라", "사이다", "밀키스", "생수"]
+price = [1000, 800, 600, 500]
+# name = "마크 하자고 하지 마시오"
+# for d in drink:
+#     print(d)
+
+# for p in price:
+#     print(p)
+
+# # 두 개의 리스트를 동시에 출력하는 방법
+
+# for i in range(len(drink)):
+#     print(drink[i], "-", price[i], "원")
+
+'''
+1. len() 함수로 drink 리스트 안에 몇개의 데이터가 있는지 구한다 
+2. range() 함수로 drink 리스트의 갯수만큼 숫자를 생성한다 (0, 1, 2, 3)
+3. range에서 생성한 숫자들을 차례대로 i 라는 변수에 담는다.
+4. 프린트 함수에서 drink 리스트의 i번째 값, price 리스트의 i번째 값을 가져와 출력한다.
+
+'''
+
+print("조용히좀해라\n" * 10)
+
+for k in range(10):
+    print("조용히좀해라")
+# for l in name:
+#     print(l)
+
+
+
+
+
+
+
