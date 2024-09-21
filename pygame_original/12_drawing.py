@@ -30,6 +30,7 @@ while running:
 
     # 직선 그리기
                 #   어따그려?, 무슨색?(3), 시작어디?(2), 끝어디?(2), 굵기는?
+    pygame.draw.line(1,2,3,4,5)
     pygame.draw.line(screen, (0, 55, 0), (0, 0), (screen_width, screen_height), 50) # (대상, 색상, 시작점, 끝점, 굵기)
     pygame.draw.line(screen, (0, 0, 0), (0, screen_height), (screen_width, 0), 50)
 

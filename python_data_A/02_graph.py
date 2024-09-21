@@ -13,9 +13,9 @@
 
 
 
-# import matplotlib.pyplot as plt
-# plt.plot([10,20,30,40], [12, 430, 25, 15])
-# plt.show()
+import matplotlib.pyplot as plt
+plt.plot([10,20,30,40], [12, 430, 25, 15])
+plt.show()
 
 
 
