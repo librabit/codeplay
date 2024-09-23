@@ -48,7 +48,7 @@ enemy_to_x = 0
 enemy_to_y = 0
 
 #1-3 공 생성
-ball = pygame.image.load("")
+ball = pygame.image.load("pygame_original/source/ball.png")
 #공 스프라이트 크기 및 위치 지정
 ball_size = ball.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 ball_width = ball_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
