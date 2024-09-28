@@ -21,8 +21,8 @@ running = True #실행중인지 확인
 circleX_pos = 0
 circleY_pos = 0
 
-l_click = pygame.mixer.Sound("pygame_original/source/l_c.mp3")
-r_click = pygame.mixer.Sound("pygame_original/source/r_c.mp3")
+# l_click = pygame.mixer.Sound("")
+# r_click = pygame.mixer.Sound("")
 
 while running:
     dt = clock.tick(60) #게임화면이 초당 리프레시되는 횟수
@@ -43,10 +43,10 @@ while running:
             print(event.button) # 마우스에서 눌리는 버튼의 종류 화면에 출력(어떤거 눌렀는지)
             if event.button == 1:
                 print("좌클")
-                l_click.play()
+                # l_click.play()
             elif event.button == 3:
                 print("우클")
-                r_click.play()
+                # r_click.play()
             elif event.button == 2:
                 print("휠클")
             elif event.button == 4:
@@ -55,10 +55,12 @@ while running:
                 print("휠다운")
     
         if event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 1:
+                print("드래그끝")
+
             print("mouseButtonUp")
             pass
         
     pygame.display.update() # 게임화면을 새로고침해줌.
-
 #종료처리
 pygame.quit()
