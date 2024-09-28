@@ -22,7 +22,6 @@ clock = pygame.time.Clock()
 
 #1-1 우리편 생성
 character = pygame.image.load("pygame_original/source/character.png")
-print(type(character))
 #스프라이트의 크기와 좌표 세팅하기 (움직임을 상정한 설정)
 character_size = character.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
@@ -125,17 +124,30 @@ while running:
     # 3-6. 공 벽에 닿으면 튕기기
     if ball_xPos <= 0:    
         ball_speed_x *= -1
-        ball_speed_x = random.randint(3, 8)
+        if ball_speed_x < 0:
+            ball_speed_x = -(random.randint(1, 3))
+        else:
+            ball_speed_x = (random.randint(1, 3))
+
     elif ball_xPos >= screen_width - ball_width:
         ball_speed_x *= -1
-        ball_speed_x = -random.randint(3, 8)
+        if ball_speed_x < 0:
+            ball_speed_x = -(random.randint(1, 3))
+        else:
+            ball_speed_x = (random.randint(1, 3))
     
     if ball_yPos <= 0:
         ball_speed_y *= -1
-        ball_speed_y = random.randint(3, 8)
+        if ball_speed_y < 0:
+            ball_speed_y = -(random.randint(1, 3))
+        else:
+            ball_speed_y = (random.randint(1, 3))
     elif ball_yPos >= screen_height - ball_height:
         ball_speed_y *= -1
-        ball_speed_y = -random.randint(3, 8)
+        if ball_speed_y < 0:
+            ball_speed_y = -(random.randint(1, 3))
+        else:
+            ball_speed_y = (random.randint(1, 3))
 
     # 5. 화면에 그리기
     screen.fill((255, 255, 255))
