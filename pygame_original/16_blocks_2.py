@@ -103,8 +103,8 @@ while running:
     for i in range(10):
         for j in range(3):
             if blocks[i][j]: #블럭을 그릴지 말지 결정
-                pygame.draw.rect(screen, block_color[i][j], blocks[i][j])
-                blocks[i][j].topleft = (i * block_width, j * block_height)
+                pygame.draw.rect(screen, block_color[i][j], blocks[i][j]) # 블럭
+                blocks[i][j].topleft = (i * block_width, j * block_height) # 블럭의 충돌판정영역 rect 생성
 
                 if ball_rect.colliderect(blocks[i][j]):
                     ball_x_speed *= -1

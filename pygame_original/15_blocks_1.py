@@ -40,6 +40,8 @@ block_yPos = 0
 blocks = [[] for _ in range(10)] #[[] for i in range(10)] #10개의 빈 리스트 생성
 block_color = [[], [], [], [], [], [], [], [], [], []] #10개의 빈 리스트 생성
 
+print(blocks)
+
 for i in range(10):
     for j in range(3):
         blocks[i].append(pygame.Rect(i*block_width, j*block_height, block_width, block_height))
