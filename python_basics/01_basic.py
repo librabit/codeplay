@@ -1,4 +1,1 @@
-num = [1, 2, 3, 4, 5]
-
-for i in num[:3:]:
-    print(i)
+movie_rank = ['닥터스트레인지', '스플릿', '럭키']
