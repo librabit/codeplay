@@ -7,7 +7,7 @@ pygame.init()
 
 # 화면 설정
 WIDTH = 800
-HEIGHT = 600
+HEIGHT = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Distance Visualizer")
 

@@ -28,7 +28,7 @@
 import csv
 import matplotlib.pyplot as plt
 
-f = open('python_data_A/csv_data/yp_10.csv', 'r', encoding='utf8')
+f = open('python_data_A/csv_data/yp10_2.csv', 'r', encoding='utf8')
 data = csv.reader(f)
 yp_all = []
 label_ages = ["0~9", "10~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80~89", "90~89", "100~"]
@@ -36,7 +36,7 @@ label_ages = ["0~9", "10~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~7
 for i in data:
     yp_all.append(i)
 
-print(yp_all[10])
+# print(yp_all)
 
 for da in range(len(yp_all)): # 양평읍 전체 반복
     for change in range(len(yp_all[da][3:])): # 양평읍 중 1개 읍/면 꺼내서 데이터 int화
@@ -46,7 +46,7 @@ for da in range(len(yp_all)): # 양평읍 전체 반복
             yp_all[da][change + 3] = int(yp_all[da][change + 3])
     # print(yp_all[da])  
 
-plt.pie(yp_all[10][3:], labels=label_ages, autopct="%.1f%%")
+plt.pie(yp_all[10][3:], labels=label_ages, autopct="%.1f%%", explode = (0,0,0,0,0,0,0.2,0,0,0,0))
 plt.show()
 
 

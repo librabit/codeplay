@@ -17,13 +17,13 @@ bg = pygame.image.load("pygame_original/source/bg.png") #상대경로로 불러�
 
 #스프라이트 불러오기
 character = pygame.image.load("pygame_original/source/character.png")
-#스프라이트의 크기와 좌표 세팅하기 (움직임을 상정한 설정)
-character_size = character.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
-character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
-character_height = character_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 
-character_xPos = (screen_width / 2) - (character_width / 2) #화면 가로 정중앙
-character_yPos = screen_height - character_height #화면 세로 맨아래 
+character_size = character.get_rect().size 
+character_width = character_size[0] 
+character_height = character_size[1] 
+
+character_xPos = (screen_width / 2) - (character_width / 2) 
+character_yPos = (screen_height / 2) - (character_height / 2) 
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인

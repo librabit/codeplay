@@ -23,6 +23,8 @@ clock = pygame.time.Clock()
 #배경 생성
 bg = pygame.image.load("pygame_original/source/bg2.png")
 
+bg = pygame.transform.scale(bg, (screen_width, screen_height))
+
 #캐릭터 생성
 character = pygame.image.load("pygame_original/source/character.png")
 character_size = character.get_rect().size

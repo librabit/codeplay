@@ -96,12 +96,12 @@ while running:
     character_rect.top = character_yPos #캐릭터의 실제좌표로 정보를 업데이트
 
     enemy_rect = enemy.get_rect()
-    enemy_rect.left = enemy_xPos-100
-    enemy_rect.top = enemy_yPos-100
+    enemy_rect.left = enemy_xPos
+    enemy_rect.top = enemy_yPos
 
     # 충돌이벤트 체크
     if character_rect.colliderect(enemy_rect): #colliderect는 두개의 사각형이 맞닿는지 체크하는 함수
-        print("충돌! 충돌!")
+        print("CRASH!")
         running = False
 
 
