@@ -4,6 +4,32 @@ kor = []
 score = 0
 order = 0
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 for i in range(10): # 단어 10개 입력
     eng.append(input("단어를 입력하시오 : "))
     kor.append(input("뜻을 입력하시오 : "))
