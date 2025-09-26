@@ -74,9 +74,14 @@
 #     print(price_list[i])
 
 
-abc = 'abc'
-num = 100
+# abc = 'abc'
+# num = 100
 
-abc.upper()
+# abc.upper()
 
-print(type(abc), type(num))
+# print(type(abc), type(num))
+
+#          0,          1,  2 ,  3 ,  4 ,  5   , 6
+price = ['20180728', 100, 130, 140, 150, 160, 170]
+
+print(price[1:])
