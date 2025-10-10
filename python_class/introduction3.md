@@ -53,9 +53,9 @@
 
         def stat(self, name):
             print(name)
-            print("hp : {}".format(self.hp))
-            print("atk : {}".format(self.atk))
-            print("speed : {}".format(self.speed))
+            print(f"hp : {self.hp}")
+            print(f"atk : {self.atk}")
+            print(f"speed : {self.speed}")
 
     class champ(char):
         def __init__(self, hp, atk, speed, q, w, e, r):
@@ -67,10 +67,10 @@
     
         def stat(self, name):
             super().stat(name)
-            print("Q_skill : {}".format(self.q))
-            print("W_skill : {}".format(self.w))
-            print("E_skill : {}".format(self.e))        
-            print("R_skill : {}".format(self.r)) 
+            print(f"Q_skill : {self.q}")
+            print(f"W_skill : {self.w}")
+            print(f"E_skill : {self.e}")        
+            print(f"R_skill : {self.r}") 
 
 ### 2. 진영별 파일을 만들고, 모듈을 불러와 객체 생성
 
