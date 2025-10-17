@@ -4,15 +4,15 @@ import pygame
 pygame.init() # 초기화 (반드시  필요)
 
 #화면크기 설정
-screen_width = 480 # 가로크기
-screen_height = 640 # 세로크기
+screen_width = 500 # 가로크기
+screen_height = 500 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 #화면 타이틀 (제목창)
 pygame.display.set_caption("똥피하기-코드플레이")
 
 #이미지 불러오기 (배경)
-bg = pygame.image.load("pygame_original/source/bg.png") #상대경로로 불러와야 다른 컴에서도 적용
+bg = pygame.image.load("pygame_original/source/bg.jpg") #상대경로로 불러와야 다른 컴에서도 적용
 
 #스프라이트 불러오기
 character = pygame.image.load("pygame_original/source/character.png")
@@ -22,6 +22,8 @@ character_width = character_size[0] #위에서 얻은 튜플의 1번째 값. 자
 character_height = character_size[1] #위에서 얻은 튜플의 2번째 값. 자동생성.
 character_xPos = (screen_width / 2) - (character_width / 2) #화면 가로 정중앙
 character_yPos = (screen_height / 2) - (character_height / 2) #화면 세로 맨아래
+
+speed = [1, 2, 3, 4, 5]
 
 #이동할 값
 to_x = 0
@@ -35,23 +37,21 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN: #키보드 눌림 확인
             if event.key == pygame.K_a: #왼쪽 화살표
-                to_x -= 1
+                to_x -= speed[0]
             elif event.key == pygame.K_d: #오른쪽 화살표 
-                to_x += 1
+                to_x += speed[0]
             elif event.key == pygame.K_w: #위쪽 화살표
-                to_y -= 1
+                to_y -= speed[0]
             elif event.key == pygame.K_s: #아랫쪽 화살표 K_UP/K_DOWN/K_LEFT/K_RIGHT
-                to_y += 1
+                to_y += speed[0]
         if event.type == pygame.KEYUP: # 키보드에서 손을 뗐을 때 중지
             if event.key == pygame.K_a or event.key == pygame.K_d: #가로움직임
                 to_x = 0
             elif event.key == pygame.K_w or event.key == pygame.K_s: #세로움직임
                 to_y = 0
-
     #추가한 이미지들을 화면에 띄우기
     character_xPos += to_x #스프라이트의 위치 반영
     character_yPos += to_y #스프라이트의 위치 반영
-    
     # 가로 스크린내 안벗어나게
     if character_xPos < 0:
         character_xPos = 0
@@ -67,6 +67,7 @@ while running:
     screen.blit(character, (character_xPos, character_yPos))
 
     pygame.display.update() # 게임화면을 새로고침해줌.
+    
 
 #종료처리
 pygame.quit()
