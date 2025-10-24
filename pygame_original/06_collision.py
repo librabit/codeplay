@@ -28,7 +28,7 @@ character_xPos = screen_width / 2 - character_width / 2 #화면 가로 정중앙
 character_yPos = screen_height - character_height #화면 세로 맨아래
 
 #두번째 스프라이트(적군) 생성
-enemy = pygame.image.load("pygame_original/source/enemy.png")
+enemy = pygame.image.load("pygame_original/source/enemy.png") #COPY RELATIVE PATH -> 역슬래쉬 슬래쉬로.
 #적군 스프라이트 크기 및 위치 지정
 enemy_size = enemy.get_rect().size #스프라이트를 사각형 형태로 가로세로 크기 구함
 enemy_width = enemy_size[0] #위에서 얻은 튜플의 1번째 값. 자동생성
@@ -42,7 +42,7 @@ to_y = 0
 
 #이동속도 고정해주기
 character_speed = 1
-enemy_speed = 1
+enemy_speed = 10
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
@@ -87,11 +87,12 @@ while running:
     enemy_yPos += enemy_speed 
     if enemy_yPos > screen_height:
         enemy_yPos = 0
-        enemy_speed = random.randint(1, 5)
+        enemy_speed = random.randint(10, 20)
         enemy_xPos = random.randint(0, screen_width - enemy_width)
 
     #충돌 처리하기
     character_rect = character.get_rect() #get_rect는 가로세로 크기를 가져옴
+    print(character_rect)
     character_rect.left = character_xPos #캐릭터의 실제좌표로 정보를 업데이트
     character_rect.top = character_yPos #캐릭터의 실제좌표로 정보를 업데이트
 
