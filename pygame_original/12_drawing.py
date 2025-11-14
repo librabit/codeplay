@@ -5,8 +5,8 @@ import random
 pygame.init()
 
 #화면크기 설정
-screen_width = 800 # 가로크기
-screen_height = 800 # 세로크기
+screen_width = 500 # 가로크기
+screen_height = 500 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 #화면 타이틀 (GUI 제목창)
@@ -26,7 +26,7 @@ while running:
             running = False
     
     # 배경색 설정
-    screen.fill((150, 95, 35))
+    screen.fill((255, 255, 255))
 
     # 직선 그리기
                 #   어따그려?, 무슨색?(3), 시작어디?(2), 끝어디?(2), 굵기는?
@@ -41,43 +41,67 @@ while running:
     #     pygame.draw.line(screen, (0, 0, 0), (i*measure, 0), (i*measure, screen_height), 2) # 세로줄
     
     # 선 여러개 긋기 (반복문 활용)
-    ll = 760 // 18
-    offset = 22
+    # ll = 760 // 18
+    # offset = 22
 
-    for i in range(0, 800, ll): # 세로줄
-        pygame.draw.line(screen, (0, 0, 0), (i + offset, 0), (i + offset, screen_width))
-    for i in range(0, 800, ll): # 가로줄
-        pygame.draw.line(screen, (0, 0, 0), (0, i + offset), (screen_width, i + offset))
-    pygame.draw.line(screen, (0, 0, 0), (0, screen_height), (screen_width, screen_height), offset * 2)
-    pygame.draw.line(screen, (0, 0, 0), (0, 0), (0, screen_height), offset * 2)
-    pygame.draw.line(screen, (0, 0, 0), (0, 0), (screen_width, 0), offset * 2)
-    pygame.draw.line(screen, (0, 0, 0), (screen_width, 0), (screen_width, screen_height), offset * 2)
+    # for i in range(0, 800, ll): # 세로줄
+    #     pygame.draw.line(screen, (0, 0, 0), (i + offset, 0), (i + offset, screen_width))
+    # for i in range(0, 800, ll): # 가로줄
+    #     pygame.draw.line(screen, (0, 0, 0), (0, i + offset), (screen_width, i + offset))
+    # pygame.draw.line(screen, (0, 0, 0), (0, screen_height), (screen_width, screen_height), offset * 2)
+    # pygame.draw.line(screen, (0, 0, 0), (0, 0), (0, screen_height), offset * 2)
+    # pygame.draw.line(screen, (0, 0, 0), (0, 0), (screen_width, 0), offset * 2)
+    # pygame.draw.line(screen, (0, 0, 0), (screen_width, 0), (screen_width, screen_height), offset * 2)
 
-    # # 원 그리기
-    start_point = (ll * 3) + offset
+    # # # 원 그리기
+    # start_point = (ll * 3) + offset
     
-    for k in range(3):
-        for i in range(3):
-            pygame.draw.circle(screen, (0, 0, 0), (start_point + (k * (6 * ll)), start_point + (i * (6 * ll))), ll / 8) # 채워진 원 (대상, 색상, 중심점, 반지름)
-    # pygame.draw.circle(screen, (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (screen_width / 2, screen_height / 2), r, 50) # 테두리 원 (대상, 색상, 중심점, 반지름, 선굵기)
+    # for k in range(3):
+    #     for i in range(3):
+    # #         pygame.draw.circle(screen, (0, 0, 0), (start_point + (k * (6 * ll)), start_point + (i * (6 * ll))), ll / 8) # 채워진 원 (대상, 색상, 중심점, 반지름)
+    # pi = 3.14
+    # pygame.draw.arc(screen, (0, 0, 0),[210, 75, 150, 150], 0, pi, 5)
+
+    diam = 90
+    pygame.draw.circle(screen, (200, 0, 0), (screen_width // 2, screen_height // 2), diam, draw_top_left=True)
+    pygame.draw.circle(screen, (200, 0, 0), (screen_width // 2, screen_height // 2), diam, draw_top_right=True)
+    pygame.draw.circle(screen, (0, 0, 200), (screen_width // 2, screen_height // 2), diam, draw_bottom_left=True)
+    pygame.draw.circle(screen, (0, 0, 200), (screen_width // 2, screen_height // 2), diam, draw_bottom_right=True)
+
+    pygame.draw.circle(screen, (200, 0, 0), (screen_width // 2 - (diam / 2), screen_height // 2), diam/2)
+    pygame.draw.circle(screen, (0, 0, 200), (screen_width // 2 + (diam / 2), screen_height // 2), diam/2)
+
+    offset = 60
+    length = 180
+    d = 20
+
+    cut1 = (length // 4) + 6
+    cut2 = (length // 4) - 6
+
+    #자르기
+    pygame.draw.line(screen, (255, 255, 255), (offset+d + cut1, offset + d + cut2), (offset + d + cut2, offset + d + cut1), d)
+
+    # 건
+    pygame.draw.line(screen, (0, 0, 0), (offset, offset + length // 2), (offset + length // 2, offset), d)
+    pygame.draw.line(screen, (0, 0, 0), (offset+d, offset + d + length // 2), (offset + d + length // 2, offset + d), d)
+    pygame.draw.line(screen, (0, 0, 0), (offset+d*2, offset + d*2 + length // 2), (offset + d*2 + length // 2, offset + d*2), d)
+
+    # 곤
+    pygame.draw.line(screen, (0, 0, 0), (offset, screen_height - (offset + length // 2)), (offset + length // 2, screen_height - offset), d)
+    pygame.draw.line(screen, (0, 0, 0), (offset+d, screen_height - (offset + d + length // 2)), (offset + d + length // 2, screen_height - (offset + d)), d)
+    pygame.draw.line(screen, (0, 0, 0), (offset+d*2, screen_height - (offset + d*2 + length // 2)), (offset + d*2 + length // 2, screen_height - (offset + d*2)), d)
+
+    # 감
+    pygame.draw.line(screen, (0, 0, 0), ((screen_width - (offset + length // 2) - (2 * d), offset + (2 * d))), ((screen_width - offset - (2 * d), offset + length // 2 + (2 * d))), d)
+    pygame.draw.line(screen, (0, 0, 0), ((screen_width - (offset + length // 2) - d, offset + d)), ((screen_width - offset - d, offset + length // 2 + d)), d)
+    pygame.draw.line(screen, (0, 0, 0), ((screen_width - (offset + length // 2), offset)), ((screen_width - offset, offset + length // 2)), d)
     
-    # # 사각형
-    # pygame.draw.rect(screen, (0, 0, 0), (screen_width / 2, screen_height / 2, 102, 12)) # 채워진 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기)
-    # pygame.draw.rect(screen, (55, 55, 255), ((screen_width / 2)+1, (screen_height / 2) + 1, 80, 10)) # 채워진 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기)
-    # pygame.draw.rect(screen, (155, 155, 55), ((screen_width / 2), (screen_height / 2), r, r), 5) # 테두리 사각형 (대상, 색상, 시작점 + 가로크기 + 세로크기, 선 굵기)
-    # r += 10
-    # if r > 250:
-    #     r = 20
-    # # 타원
-    # pygame.draw.ellipse(screen, (55, 55, 255), (screen_width / 2, screen_height / 2, 100, 200)) # 채워진 타원 (대상, 색상, 시작점 + 가로크기 + 세로크기)
-    # pygame.draw.ellipse(screen, (155, 155, 55), (screen_width / 2, screen_height / 2, 200, 100), 5) # 테두리 타원 (대상, 색상, 시작점 + 가로크기 + 세로크기, 선 굵기)
-    # pygame.draw.ellipse(screen, (55, 55, 255), (screen_width / 2 - 100, screen_height / 2 - 100, 100, 100)) # 채워진 타원 (대상, 색상, 시작점 + 가로크기 + 세로크기)
-    # pygame.draw.ellipse(screen, (155, 155, 55), (screen_width / 2 - 100, screen_height / 2 - 100, 100, 100), 5) # 테두리 타원 (대상, 색상, 시작점 + 가로크기 + 세로크기, 선 굵기)
-    
-    # # # 다각형
-    # pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 200], [200, 200]]) # 삼각형 / 점은 3개 이상. 윗쪽부터 반시계방향으로 좌표 작성
-    # pygame.draw.polygon(screen, (0, 0, 0), [[100, 0], [0, 100], [0, 200], [100, 300], [550, 250], [200, 200], [200, 100]], 5) # 육각형. 점의 갯수만큼 추가하면 됨.
-        
+    # 리
+    # pygame.draw.line(screen, (0, 0, 0), ((screen_width - (offset + length // 2) - (2 * d), screen_height - (offset + d*2)), (offset + length // 2, screen_height - offset)), d)
+    # pygame.draw.line(screen, (0, 0, 0), (offset+d, screen_height - (offset + d + length // 2)), (offset + d + length // 2, screen_height - (offset + d)), d)
+    # pygame.draw.line(screen, (0, 0, 0), (offset+d*2, screen_height - (offset + d*2 + length // 2)), (offset + d*2 + length // 2, screen_height - (offset + d*2)), d)
+
+
     pygame.display.update() # 게임화면을 새로고침해줌.
 
 # 종료시간 살짝 늦추기
