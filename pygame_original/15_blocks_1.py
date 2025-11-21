@@ -5,8 +5,8 @@ import random
 pygame.init() # 초기화 (반드시 필요)
 
 #화면크기 설정
-screen_width = 640 # 가로크기
-screen_height = 640 # 세로크기
+screen_width = 700 # 가로크기
+screen_height = 700 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 
@@ -14,8 +14,8 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("벽돌깨기")
 
 #1. 막대기 정의
-bar_width = 150
-bar_height = 25
+bar_width = screen_width / 5
+bar_height = screen_height / 20
 
 bar_xPos = screen_width / 2 - bar_width / 2
 bar_yPos = screen_height - bar_height
@@ -38,9 +38,7 @@ block_xPos = 0
 block_yPos = 0
 
 blocks = [[] for _ in range(10)] #[[] for i in range(10)] #10개의 빈 리스트 생성
-block_color = [[], [], [], [], [], [], [], [], [], []] #10개의 빈 리스트 생성
-
-print(blocks)
+block_color = [[] for _ in range(10)] #10개의 빈 리스트 생성
 
 for i in range(10):
     for j in range(3):
