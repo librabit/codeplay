@@ -56,6 +56,7 @@ point = 0
 
 #7. 화면에 글자 출력
 pygame.font.init()
+
 def gameText(words): #매개변수로 받는 내용 화면에 출력
     font = pygame.font.SysFont(None, 100) #폰트지정
 
@@ -66,6 +67,19 @@ def gameText(words): #매개변수로 받는 내용 화면에 출력
 
     text_xPos = screen_width / 2 - text_width / 2 #텍스트 위치 지정
     text_yPos = screen_height / 2 - text_height / 2
+
+    screen.blit(text, (text_xPos, text_yPos)) #화면에 텍스트 갱신
+
+def timeShow(sec): #매개변수로 받는 내용 화면에 출력
+    font = pygame.font.SysFont(None, 100) #폰트지정
+
+    text = font.render(sec, True, (255, 0, 0)) #글자내용과 색상 지정
+
+    text_width = text.get_rect().size[0] #텍스트 가로세로 크기지정(좌표계산용)
+    text_height = text.get_rect().size[1]
+
+    text_xPos = screen_width / 2 - text_width / 2 #텍스트 위치 지정
+    text_yPos = text_height
 
     screen.blit(text, (text_xPos, text_yPos)) #화면에 텍스트 갱신
 
@@ -121,7 +135,7 @@ while running:
     elif ball_yPos >= screen_height: #바닥에 공이 닿으면 끝
         # ball_y_speed = -ball_y_speed
         screen.fill((0, 0, 0))
-        gameText("Your Score : %d" % point)
+        gameText(f"Your Score : {point}")
         pygame.display.update()
         pygame.time.delay(2000)
         running = False #While 반복문 종료
@@ -152,12 +166,14 @@ while running:
     
     if point >= 30:
         screen.fill((0, 255, 0))
-        gameText('Cleared in %d"' % timer)
+        gameText(f'Cleared in {timer}')
         pygame.display.update()
         pygame.time.delay(2000)
         running = False
     
-    timer = pygame.time.get_ticks() / 1000
+    timer = pygame.time.get_ticks() // 1000
+
+    timeShow(str(timer))
 
     pygame.display.update()
 

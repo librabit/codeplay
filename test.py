@@ -81,7 +81,27 @@
 
 # print(type(abc), type(num))
 
-#          0,          1,  2 ,  3 ,  4 ,  5   , 6
-price = ['20180728', 100, 130, 140, 150, 160, 170]
+# #          0,          1,  2 ,  3 ,  4 ,  5   , 6
+# price = ['20180728', 100, 130, 140, 150, 160, 170]
 
-print(price[1:])
+# print(price[1:])
+
+# range에서 생성한 인덱스를 활용하는 방법
+
+# price_list = [32100, 32150, 32000, 32500]
+
+# for i in range(len(price_list)):
+#     print((len(price_list) - 1) - i, price_list[i])
+
+# my_list = ["가", "나", "다", "라"]
+
+# for i in range(len(my_list) - 1):
+#     # 01
+#     # 12
+#     # 23
+#     print(my_list[i], my_list[i + 1])
+
+my_list = ["가", "나", "다", "라"]
+
+for i in range(len(my_list) - 1, 0, -1):
+    print(my_list[i], my_list[i-1])
