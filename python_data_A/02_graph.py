@@ -23,12 +23,12 @@
 
 
 
-# import matplotlib.pyplot as plt # 범례 legend
-# plt.title('two graph')
-# plt.plot([10, 20, 30, 40], label='up')    # 증가를 의미하는 up 범례
-# plt.plot([40, 30, 20, 10], label='down')   # 감소를 의미하는 down 범례
-# plt.legend()
-# plt.show()
+import matplotlib.pyplot as plt # 범례 legend
+plt.title('two graph')
+plt.plot([10, 20, 30, 40], label='up')    # 증가를 의미하는 up 범례
+plt.plot([40, 30, 20, 10], label='down')   # 감소를 의미하는 down 범례
+plt.legend()
+plt.show()
 
 
 
