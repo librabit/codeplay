@@ -1,9 +1,5 @@
-data = [
-    [ 2000,  3050,  2050,  1980],
-    [ 7500,  2050,  2050,  1980],
-    [15450, 15050, 15550, 14900]
-]
+l = [5, 4, 3, 2, 1]
 
-for i in data:
-    for price in i:
-        print(price * 1.00014)
+for i in range(len(l)):
+    print(l[(len(l) - 1) - i])
+    #         4
