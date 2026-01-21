@@ -1,43 +1,115 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
+import csv
  
-# Example data
-x = np.linspace(0, 10, 100)
-y1 = np.sin(x)
-y2 = np.cos(x)
-y3 = np.tan(x)
-y4 = np.exp(-x)
+f = open('python_data_A/csv_data/yp10_2.csv', 'r', encoding='utf8')
+data = list(csv.reader(f))
+f.close()
 
-fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(10, 8))
- 
-axes[0, 0].plot(x, y1, label='sin(x)', color='blue')
-axes[0, 0].set_title('Line Plot 1')
-axes[0, 0].legend()
- 
-axes[0, 1].plot(x, y2, label='cos(x)', color='orange')
-axes[0, 1].set_title('Line Plot 2')
-axes[0, 1].legend()
- 
-axes[1, 0].plot(x, y3, label='tan(x)', color='green')
-axes[1, 0].set_title('Line Plot 3')
-axes[1, 0].legend()
- 
-axes[1, 1].plot(x, y4, label='exp(-x)', color='red')
-axes[1, 1].set_title('Line Plot 4')
-axes[1, 1].legend()
+all = []
 
-axes[1, 2].plot(x, y3, label='tan(x)', color='green')
-axes[1, 2].set_title('Line Plot 3')
-axes[1, 2].legend()
- 
-axes[0, 2].plot(x, y4, label='exp(-x)', color='red')
-axes[0, 2].set_title('Line Plot 4')
-axes[0, 2].legend()
+for i in data:
+    temp = []
+    temp.append(i[0][8:11])
+
+    for j in i[3:]:
+        if "," in j:
+            temp.append(int(j.replace(",", "")))
+        else:
+            temp.append(int(j))
+
+    all.append(temp)
+
+area1 = []
+area2 = []
+
+name1 = input("비교하려는 첫 번째 지역명을 쓰시오")
+name2 = input("비교하려는 두 번째 지역명을 쓰시오")
+
+for k in all:
+    if name1 in k[0]:
+        area1 = k[1:]
+        break
+
+for l in all:
+    if name2 in l[0]:
+        area2 = l[1:]
+        break
+
+plt.rc('font', family='Gulim')
+city1 = area1
+city2 = area2
+label = ['0-9', '10대', '20대', '30대', '40대', '50대', '60대', '70대', '80대', '90대', '100세이상']
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+
+axes[0].pie(city1, labels=label, autopct='%.1f%%')
+axes[0].set_title(f"{name1} : {sum(city1)}")
+# axes[0].legend()
+
+axes[1].pie(city2, labels=label, autopct='%.1f%%')
+axes[1].set_title(f"{name2} : {sum(city2)}")
+# axes[1].legend()
 
 plt.tight_layout()
  
 plt.show()
+
+
+# # x = np.linspace(0, 10, 100)
+# # y1 = np.sin(x)
+# # y2 = np.cos(x)
+# # y3 = np.tan(x)
+# # y4 = np.exp(-x)
+
+# fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+
+# plt.rc('font', family='Gulim')
+# size = [3141, 2612, 1031, 2733]
+# label = ['A형','B형','AB형', 'O형']
+# color = ['darkmagenta', 'deeppink', 'hotpink', 'pink']
+
+
+# # axes[0].axis('equal')
+# axes[0].pie(size, labels=label, autopct='%.1f%%')
+# axes[0].set_title('파이')
+# axes[0].legend()
+
+
+# # axes[1].axis('equal')
+
+# axes[1].pie(size, explode=(0,0,0,0.2), labels=label, autopct='%.1f%%', colors=color)
+# axes[1].set_title("pi2")
+# axes[1].legend()
+
+
+# axes[0, 0].plot(x, y1, label='exp(-x)', color='red')
+# axes[0, 0].set_title('Line Plot 1')
+# axes[0, 0].legend()
+
+# axes[0, 1].plot(x, y2, label='exp(-x)', color='red')
+# axes[0, 1].set_title('Line Plot 2')
+# axes[0, 1].legend()
+
+# axes[0, 2].plot(x, y3, label='exp(-x)', color='red')
+# axes[0, 2].set_title('Line Plot 3')
+# axes[0, 2].legend()
+ 
+# axes[1, 0].plot(x, y1, label='tan(x)', color='green')
+# axes[1, 0].set_title('Line Plot 4')
+# axes[1, 0].legend()
+ 
+# axes[1, 1].plot(x, y2, label='exp(-x)', color='red')
+# axes[1, 1].set_title('Line Plot 5')
+# axes[1, 1].legend()
+
+# axes[1, 2].plot(x, y4, label='tan(x)', color='green')
+# axes[1, 2].set_title('Line Plot 6')
+# axes[1, 2].legend()
+
+# plt.tight_layout()
+ 
+# plt.show()
 
 
 '''
@@ -52,4 +124,4 @@ plt.show()
 '''
 
 
-s = "Python"
+# s = "Python"

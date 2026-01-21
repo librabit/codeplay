@@ -35,14 +35,15 @@ while running:
                 for i in range(101) :
                     m.append(-int(row[(i+3)]))
                     f.insert(0, int(row[-(i+1)]))
-            plt.style.use('ggplot')
-            plt.figure(figsize=(10,5), dpi=150)
-            plt.rc('font', family='Malgun Gothic') # 한글을 쓰기위해
-            plt.rcParams['axes.unicode_minus'] = False # 특수기호를 utf-8로 쓰기위해
-            plt.barh(range(101), allM, color = 'skyblue', label = "남성 전체")
-            plt.barh(range(101), allF, color = 'pink', label = "여성 전체")
-            # plt.title(f"양평군 전체 대비 {name}지역 성별분포")
-            # plt.barh(range(101), m, color = 'blue', label = "남성")
-            # plt.barh(range(101), f, color = 'red', label = "여성")
-            plt.legend()
-            plt.show()
+                break
+        plt.style.use('ggplot')
+        plt.figure(figsize=(10,5), dpi=150)
+        plt.rc('font', family='Malgun Gothic') # 한글을 쓰기위해
+        plt.rcParams['axes.unicode_minus'] = False # 특수기호를 utf-8로 쓰기위해
+        plt.barh(range(101), allM, color = 'skyblue', label = "남성 전체")
+        plt.barh(range(101), allF, color = 'pink', label = "여성 전체")
+        plt.title(f"양평군 전체 대비 {name}지역 성별분포")
+        plt.barh(range(101), m, color = 'blue', label = "남성")
+        plt.barh(range(101), f, color = 'red', label = "여성")
+        plt.legend()
+        plt.show()
