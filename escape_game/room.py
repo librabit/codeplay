@@ -1,5 +1,7 @@
-rooms = {'room01':[1,0,0,0], 'room02':[1,1,0,0],
-         'room03':[0,1,1,0],'room04':[1,0,0,1],
+import event
+
+rooms = {'room01':[1,0,0,0,0], 'room02':[1,1,0,0],
+         'room03':[0,1,1,0,0],'room04':[1,0,0,1],
          'room05':[1,1,0,0],'room06':[1,1,1,1],
          'room07':[0,0,0,1],'room08':[0,0,1,1],
          'room09':[0,0,1,1],'room10':[0,1,1,0],
@@ -204,6 +206,6 @@ def move(room_name, walls, direction):
     
     return nextRoom
 
-while running:
-    dir = enter(room_name)
-    room_name = move(room_name, rooms[room_name], dir)
+# while running:
+#     dir = enter(room_name)
+#     room_name = move(room_name, rooms[room_name], dir)

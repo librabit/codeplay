@@ -18,7 +18,7 @@ for row in data :
             m.append(-int(row[(i+3)]))
             f.insert(0, int(row[-(i+1)]))
         # break
-# f.reverse()
+
 plt.style.use('ggplot')
 plt.figure(figsize=(10,5), dpi=150)
 plt.rc('font', family='Malgun Gothic') # 한글을 쓰기위해
