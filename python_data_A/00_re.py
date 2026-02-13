@@ -6,10 +6,10 @@
 import csv
 import matplotlib.pyplot as plt
 
-# plt.plot([100, 20, 30, 40])
+# plt.plot([0, 5, 50, 150, 2002], [0, 100, 20, 30, 40])
 
 # plt.bar([0, 1, 2, 4, 6, 10], [-1, -2, -3, 5, 6, 7]) # 표시할 위치/막대그래프 높이
-plt.barh(range(6), [-1, -2, -3, 5, 6, 7]) # range함수로 위치설정 가능 (리스트 형태 데이터)
+plt.barh('abcdef', [-1, -2, -3, 5, 6, 7]) # range함수로 위치설정 가능 (리스트 형태 데이터)
 
 plt.show()
 
