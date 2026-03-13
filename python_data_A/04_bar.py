@@ -6,8 +6,7 @@ import csv
 # plt.barh(range(6), [1, 2, 3, 5, 6, 7]) # range함수로 위치설정 가능 (리스트 형태 데이터)
 # plt.show()
 
-
-f = open('', 'r', encoding='utf8')
+f = open('python_data_A/csv_data/yp2025.csv', 'r', encoding='utf8')
 data = csv.reader(f)
 result = []
 for row in data :
