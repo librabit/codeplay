@@ -1,7 +1,7 @@
 # 데이터 시각화
 import matplotlib.pyplot as plt
 
-plt.pie([10, 20])
+# plt.pie([10, 20])
 
 # size = [2441, 2312, 1031, 1233]
 # plt.axis('equal')
@@ -17,18 +17,22 @@ plt.pie([10, 20])
 # size = [1125, 2312, 1031, 1233]
 # label = ['typeA','typeB','에이삐형', 'typeO']
 
-# plt.rc('font', family='Gulim')
-# size = [3141, 2612, 1031, 2733]
-# label = ['A형','B형','AB형', 'O형']
-# color = ['darkmagenta', 'deeppink', 'hotpink', 'pink']
+plt.rc('font', family='Gulim')
 
-# fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+blood = [3141, 2612, 1031, 2733]
+label1 = ['A형','B형','AB형', 'O형']
+color = ['darkmagenta', 'deeppink', 'hotpink', 'pink']
+
+ddi = [32, 39, 29, 21, 73, 23, 52, 34, 21, 39, 51, 12]
+label2 = ["자(쥐)", "축(소)", "인(호랑이)", "묘(토끼)", "진(용)", "사(뱀)", "오(말)", "미(양)", "신(원숭이)", "유(닭)", "술(개)", "해(돼지)"]
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
  
-# axes[0].pie(size, labels=label, autopct='%.1f%%')
-# axes[0].set_title('비율')
+axes[0].pie(blood, explode = (0.01, 0.01, 0.2, 0.01),labels=label1, autopct='%.1f%%', colors=color)
+axes[0].set_title('비율')
  
-# axes[1].pie(size, explode=(0,0,0,0.2), labels=label, autopct='%.1f%%', colors=color)
-# axes[1].set_title('돌출')
+axes[1].pie(ddi, explode = (0.01, 0.01, 0.01, 0.2, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01), labels=label2, autopct='%.1f%%')
+axes[1].set_title('돌출')
 
 # plt.axis('equal')
 # plt.pie(size, labels=label, autopct='%.1f%%')
