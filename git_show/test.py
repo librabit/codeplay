@@ -1,1 +1,1 @@
-print("github 개쉽네~")
+print("github 쩐다! 대박!")
