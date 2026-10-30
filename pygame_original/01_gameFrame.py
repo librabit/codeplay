@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import pygame
 pygame.init() # 초기화 (반드시 필요)
 
@@ -11,7 +12,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("코딩쌤 초미남")
 
 #이벤트 루프 - 종료까지 대기
-running = True #실행중인지 확인
+running = True # 실행중인지 확인
 
 while running: # 반복
     for event in pygame.event.get(): 

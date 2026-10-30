@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("피하기게임")
 
 #이미지 불러오기 (배경)
-bg = pygame.image.load("pygame_original/source/background.png") # Relative Path
+bg = pygame.image.load("") # Relative Path
 
 #이벤트 루프 - 종료까지 대기
 running = True #실행중인지 확인
