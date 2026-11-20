@@ -1,14 +1,13 @@
 import math
 import pygame
+from font_set import *
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 pygame.display.set_caption("도형 클릭 예제")
 clock = pygame.time.Clock()
 
-# Windows 기본 한글 폰트 (맑은 고딕)
-font = pygame.font.SysFont("Gungsuhche", 28)
-small_font = pygame.font.SysFont("malgungothic", 20)
+
 
 # --- 도형 정의 ---
 rect = pygame.Rect(100, 150, 120, 80)
@@ -23,16 +22,13 @@ MESSAGE_DURATION = 2000  # 2초 (밀리초)
 message = DEFAULT_MESSAGE
 message_time = 0
 
-
 def is_in_circle(pos, center, radius):
     return math.hypot(pos[0] - center[0], pos[1] - center[1]) <= radius
-
 
 def show_message(text):
     global message, message_time
     message = text
     message_time = pygame.time.get_ticks()
-
 
 running = True
 while running:

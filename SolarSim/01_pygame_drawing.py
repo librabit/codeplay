@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import pygame
 import random
+from minam import *
 
 pygame.init() # 초기화 (반드시 필요)
 
@@ -10,7 +11,7 @@ screen_height = 500 # 세로크기
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 #화면 타이틀 (제목창)
-pygame.display.set_caption("1106")
+pygame.display.set_caption(MAIN_TITLE)
 
 
 #이벤트 루프 - 종료까지 대기
